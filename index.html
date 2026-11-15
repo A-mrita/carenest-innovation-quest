@@ -1,0 +1,467 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareNest | Our Design Journey</title>
+
+<style>
+:root {
+  --plum: #25213B;
+  --coral: #F4A18B;
+  --yellow: #F3D46C;
+  --lavender: #B8A7E8;
+  --mint: #A8D9C3;
+  --blue: #A8C9EC;
+  --cream: #FFF8F0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  background: var(--cream);
+  color: var(--plum);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--plum);
+  color: white;
+  padding: 17px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo { font-size: 23px; font-weight: bold; }
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 13px;
+}
+
+.hero {
+  min-height: 570px;
+  background: var(--plum);
+  color: white;
+  padding: 90px 9%;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.eyebrow {
+  color: var(--coral);
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.08;
+  margin: 20px 0;
+}
+
+.hero h1 span { color: var(--coral); }
+
+.hero p {
+  color: #E8E1EE;
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.hero-art {
+  background: linear-gradient(145deg, var(--coral), var(--yellow));
+  border-radius: 45% 45% 35% 35%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 110px;
+  position: relative;
+}
+
+.hero-art::after {
+  content: "♡";
+  position: absolute;
+  font-size: 60px;
+  top: -25px;
+  right: 5px;
+  color: white;
+}
+
+.cta {
+  display: inline-block;
+  background: var(--coral);
+  color: var(--plum);
+  text-decoration: none;
+  padding: 15px 26px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin-top: 28px;
+}
+
+section {
+  padding: 85px 9%;
+}
+
+.section-tag {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #99705F;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(30px, 4vw, 43px);
+  margin-bottom: 16px;
+}
+
+.intro {
+  max-width: 650px;
+  line-height: 1.8;
+  color: #71677A;
+}
+
+.journey {
+  background: #F2EAF9;
+}
+
+.stage-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.stage {
+  border-radius: 20px;
+  padding: 23px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--plum);
+  transition: transform .25s;
+}
+
+.stage:hover {
+  transform: translateY(-8px);
+}
+
+.stage .number {
+  font-size: 29px;
+  font-weight: bold;
+}
+
+.stage h3 { margin: 12px 0 7px; }
+
+.stage p { font-size: 12px; line-height: 1.5; }
+
+.s1 { background: var(--coral); }
+.s2 { background: var(--yellow); }
+.s3 { background: var(--lavender); }
+.s4 { background: var(--mint); }
+.s5 { background: var(--blue); }
+
+.chapter {
+  border-radius: 28px;
+  margin-top: 45px;
+  padding: 35px;
+  background: white;
+  box-shadow: 0 8px 30px #25213B0D;
+}
+
+.chapter h3 {
+  font-size: 27px;
+  margin-bottom: 12px;
+}
+
+.chapter p {
+  color: #71677A;
+  line-height: 1.8;
+}
+
+.activity-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.activity {
+  border: 1px solid #E7DCEB;
+  padding: 12px 17px;
+  border-radius: 25px;
+  font-size: 13px;
+  background: var(--cream);
+}
+
+.explore {
+  border: none;
+  background: var(--plum);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  margin-top: 23px;
+  cursor: pointer;
+}
+
+.details {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: #FFF3ED;
+  border-radius: 15px;
+  line-height: 1.8;
+}
+
+.details.show { display: block; }
+
+.prototype {
+  background: var(--plum);
+  color: white;
+  text-align: center;
+}
+
+.prototype .intro { color: #E8E1EE; margin: auto; }
+
+.prototype-box {
+  margin: 35px auto 0;
+  max-width: 650px;
+  padding: 50px 20px;
+  background: #403956;
+  border: 2px dashed var(--mint);
+  border-radius: 25px;
+}
+
+.prototype-box span { font-size: 65px; }
+
+.test-box {
+  background: #FFF0D8;
+  border-radius: 24px;
+  padding: 35px;
+  margin-top: 30px;
+}
+
+footer {
+  background: var(--plum);
+  color: white;
+  padding: 35px;
+  text-align: center;
+}
+
+@media(max-width: 750px) {
+  nav { flex-wrap: wrap; gap: 12px; }
+  nav a { margin-left: 8px; }
+  .hero { grid-template-columns: 1fr; padding: 65px 7%; }
+  .hero-art { min-height: 230px; }
+  .stage-grid { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 60px 7%; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">♡ CareNest</div>
+  <div>
+    <a href="#journey">Journey</a>
+    <a href="#prototype">Prototype</a>
+    <a href="#future">What's Next</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">OUR DESIGN THINKING JOURNEY</div>
+    <h1>A little care can <span>change everything.</span></h1>
+    <p>
+      Every meaningful innovation begins with understanding
+      someone else's world. Discover how our team transformed
+      a caregiving challenge into the idea behind CareNest.
+    </p>
+    <a href="#journey" class="cta">Explore our journey →</a>
+  </div>
+
+  <div class="hero-art">🏡</div>
+</header>
+
+<section class="journey" id="journey">
+  <div class="section-tag">THE BIG PICTURE</div>
+  <h2 class="section-title">Five stages. One journey.</h2>
+  <p class="intro">
+    Our idea didn't appear overnight. It evolved through
+    exploration, discussion, creative thinking and design.
+    Here's how we got there.
+  </p>
+
+  <div class="stage-grid">
+    <a class="stage s1" href="#empathise">
+      <div class="number">01</div>
+      <h3>Empathise</h3>
+      <p>Understand people</p>
+    </a>
+
+    <a class="stage s2" href="#define">
+      <div class="number">02</div>
+      <h3>Define</h3>
+      <p>Find the problem</p>
+    </a>
+
+    <a class="stage s3" href="#plan">
+      <div class="number">03</div>
+      <h3>Plan</h3>
+      <p>Explore ideas</p>
+    </a>
+
+    <a class="stage s4" href="#prototype">
+      <div class="number">04</div>
+      <h3>Prototype</h3>
+      <p>Build the solution</p>
+    </a>
+
+    <a class="stage s5" href="#future">
+      <div class="number">05</div>
+      <h3>Test</h3>
+      <p>Improve and validate</p>
+    </a>
+  </div>
+</section>
+
+<section id="empathise">
+  <div class="section-tag">STAGE 01</div>
+  <h2 class="section-title">Empathise 💗</h2>
+  <p class="intro">
+    Before creating a solution, we needed to understand
+    the people whose everyday lives we wanted to improve.
+  </p>
+  <div class="chapter">
+    <h3>Getting to know our users</h3>
+    <p>We explored users, their experiences, their needs
+    and the people involved in their care.</p>
+    <div class="activity-list">
+      <span class="activity">Persona Mapping</span>
+      <span class="activity">Stakeholder Analysis</span>
+      <span class="activity">Journey Mapping</span>
+    </div>
+    <button class="explore" onclick="toggle('d1')">Discover this stage ↓</button>
+    <div class="details" id="d1">
+      This stage helped us explore the caregiver and patient
+      perspectives, their everyday responsibilities and
+      the challenges surrounding care.
+    </div>
+  </div>
+</section>
+
+<section id="define" style="background:#FFF0D8">
+  <div class="section-tag">STAGE 02</div>
+  <h2 class="section-title">Define 🎯</h2>
+  <p class="intro">
+    Understanding a user is only the beginning.
+    We needed to identify the specific problem
+    that our solution should address.
+  </p>
+  <div class="chapter">
+    <h3>Finding the real challenge</h3>
+    <p>We explored the problem, identified important pain
+    points and considered the scale of the issue.</p>
+    <div class="activity-list">
+      <span class="activity">Problem Identification</span>
+      <span class="activity">Problem Sizing</span>
+    </div>
+    <button class="explore" onclick="toggle('d2')">Discover this stage ↓</button>
+    <div class="details" id="d2">
+      Our central challenge involved busy caregivers
+      managing the everyday needs of elderly or dependent
+      family members while balancing their own responsibilities.
+    </div>
+  </div>
+</section>
+
+<section id="plan" style="background:#F0EBFA">
+  <div class="section-tag">STAGE 03</div>
+  <h2 class="section-title">Plan & Ideate 💡</h2>
+  <p class="intro">
+    One problem can have many possible solutions.
+    We explored different directions before narrowing
+    down our ideas.
+  </p>
+  <div class="chapter">
+    <h3>From possibilities to one idea</h3>
+    <p>We used creative exercises to generate, connect,
+    compare and prioritise potential solutions.</p>
+    <div class="activity-list">
+      <span class="activity">Brainstorming</span>
+      <span class="activity">Mind Mapping</span>
+      <span class="activity">Divergent Thinking</span>
+      <span class="activity">Convergent Thinking</span>
+    </div>
+    <button class="explore" onclick="toggle('d3')">Discover this stage ↓</button>
+    <div class="details" id="d3">
+      We explored multiple possibilities and used
+      prioritisation to move towards a solution that
+      could address the caregiving challenge.
+    </div>
+  </div>
+</section>
+
+<section class="prototype" id="prototype">
+  <div class="section-tag">STAGE 04</div>
+  <h2 class="section-title">Prototype 🏡</h2>
+  <p class="intro">
+    And this is where our idea takes shape.
+    Introducing CareNest — a centralised caregiving
+    companion designed for caregivers and patients.
+  </p>
+  <div class="prototype-box">
+    <span>📱</span>
+    <h3>CareNest GUI coming here!</h3>
+    <p>We'll add your actual prototype screenshots here.</p>
+  </div>
+</section>
+
+<section id="future">
+  <div class="section-tag">STAGE 05</div>
+  <h2 class="section-title">Test & Improve 🔍</h2>
+  <p class="intro">
+    A prototype is a starting point, not the finish line.
+    The next step is to understand how well it works
+    for the people it is designed to help.
+  </p>
+  <div class="test-box">
+    <h3>Our next milestone</h3>
+    <p>
+      Prototype testing has not yet been completed.
+      We plan to explore usability, caregiver workflows,
+      patient assistance and opportunities for improvement.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <h2>CareNest 💗</h2>
+  <p>Designed with care. Inspired by people.</p>
+  <p style="margin-top:12px;font-size:12px">
+    Our Design Thinking Journey
+  </p>
+</footer>
+
+<script>
+function toggle(id) {
+  document.getElementById(id).classList.toggle('show');
+}
+</script>
+
+</body>
+</html>
