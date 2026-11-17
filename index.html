@@ -235,7 +235,7 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
    <article class="tool-card"><div class="tool-icon">🧍</div><h4>Persona mapping</h4><p>We organised a user's pains, gains, daily tasks, reality and personal context.</p><button onclick="openPersona()">Peek inside ↓</button><div class="tool-detail" id="persona">Meet our persona: a working daughter in her 30s who balances a full-time job with caring for her unwell mother. Her experience helped us understand the emotional, practical and time-related challenges faced by caregivers.
 <img src="persona-mapping.png.png" alt="Visual persona of a working daughter balancing her career and caring for her unwell mother" style="width:100%;height:auto;display:block;margin:20px auto;border-radius:18px;">
 </div></article>
-   <article class="tool-card"><div class="tool-icon">🫶</div><h4>Empathy mapping</h4><p>We considered what a user says, thinks, feels and does.</p><button onclick="reveal('empathy')">Peek inside ↓</button><div class="tool-detail" id="empathy">Looking at these four perspectives helps reveal needs and frustrations that may not be obvious at first.</div></article>
+   <article class="tool-card"><div class="tool-icon">🫶</div><h4>Empathy mapping</h4><p>We considered what a user says, thinks, feels and does.</p><button onclick="openEmpathy()">Peek inside ↓</button><div class="tool-detail" id="empathy">Looking at these four perspectives helps reveal needs and frustrations that may not be obvious at first.</div></article>
    <article class="tool-card"><div class="tool-icon">👥</div><h4>Stakeholder analysis</h4><p>We identified people and groups connected to, influencing or affected by the product.</p><button onclick="reveal('stakeholders')">Peek inside ↓</button><div class="tool-detail" id="stakeholders">We used stakeholder mapping and a power–interest matrix to think about whose needs and involvement matter.</div></article>
    <article class="tool-card"><div class="tool-icon">🗺️</div><h4>Journey mapping</h4><p>We explored an experience through its different touchpoints and emotional highs and lows.</p><button onclick="reveal('journeytool')">Peek inside ↓</button><div class="tool-detail" id="journeytool">Journey mapping helps identify where an experience becomes difficult and where improvements may make a difference.</div></article>
   </div>
@@ -306,6 +306,14 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
     <img src="persona-mapping.png.png" alt="CareNest visual persona mapping">
   </div>
 </div>
+  
+<div id="empathyModal" class="persona-modal" onclick="closeEmpathy()">
+  <button class="persona-close" onclick="closeEmpathy()" aria-label="Close">×</button>
+  <div class="persona-modal-content" onclick="event.stopPropagation()">
+    <img src="empathy-mapping.png" alt="CareNest empathy mapping">
+  </div>
+</div>
+
   <script>
 function openPersona(){
   document.getElementById('personaModal').classList.add('show');
@@ -315,7 +323,17 @@ function openPersona(){
 function closePersona(){
   document.getElementById('personaModal').classList.remove('show');
   document.body.style.overflow = '';
-}function reveal(id){
+}
+  function openEmpathy(){
+  document.getElementById('empathyModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEmpathy(){
+  document.getElementById('empathyModal').classList.remove('show');
+  document.body.style.overflow = '';
+}  
+    function reveal(id){
  const panel=document.getElementById(id);
  const opening=!panel.classList.contains('open');
  panel.classList.toggle('open');
