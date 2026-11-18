@@ -361,6 +361,26 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 .bmc-stat small{color:#786b82}
 @media(max-width:560px){.bmc-detail-overlay{padding:8px}.bmc-detail{border-radius:20px;padding:17px}.bmc-bar-row{grid-template-columns:1fr auto}.bmc-bar-track{grid-column:1/-1;grid-row:2}}
 
+
+/* EMPATHISE: VISUAL EVIDENCE + INSIGHT PANELS */
+.empathy-experience{margin-top:30px}.empathy-tool-card{display:flex;flex-direction:column;min-height:100%}
+.insight-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 15px;margin-top:12px;border:1px solid #eadcf4;border-radius:14px;background:#fbf5ff;color:#563b72;font-weight:800;text-align:left;cursor:pointer}
+.insight-toggle span:last-child{font-size:19px;transition:transform .2s}.insight-toggle[aria-expanded="true"] span:last-child{transform:rotate(180deg)}
+.insight-panel{display:none;padding:16px 15px 17px;background:#fff;border:1px solid #eee3f3;border-top:0;border-radius:0 0 14px 14px;color:#6b5a76;font-size:13px;line-height:1.7}
+.insight-panel.open{display:block;animation:reveal .25s ease}.insight-panel ul{padding-left:18px;margin:8px 0}.insight-panel li{margin:5px 0}.insight-panel b{color:#51336c}
+.insight-label{display:inline-block;margin:5px 5px 0 0;padding:5px 9px;border-radius:99px;background:#f3e7fb;color:#68428a;font-size:11px;font-weight:800}
+.activity-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:14px}.activity-actions button{margin:0;padding:10px 14px;border-radius:99px;background:#63358a;color:white;font-size:12px}
+.empathise-insight{margin-top:30px;padding:clamp(22px,4vw,34px);border-radius:26px;background:linear-gradient(130deg,#35204b,#68418a);color:white;box-shadow:0 15px 35px #35204b20}
+.empathise-insight h3{font-size:clamp(22px,3vw,30px);margin-bottom:9px}.empathise-insight>p{color:#f0e5f5;line-height:1.75;font-size:14px;max-width:780px}
+.insight-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}.insight-column{padding:17px;background:#ffffff12;border:1px solid #ffffff26;border-radius:17px}
+.insight-column strong{display:block;color:#ffe1ef;margin-bottom:7px;font-size:14px}.insight-column p{font-size:12px;line-height:1.65;color:#f5edf8}
+.insight-flow{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:23px}.insight-flow span{padding:10px 14px;border-radius:99px;background:#fff;color:#563b72;font-weight:800;font-size:12px}.insight-flow b{color:#ffd2e8;font-size:20px}
+.visual-modal{display:none;position:fixed;inset:0;z-index:10001;background:rgba(35,20,55,.97);padding:62px 24px 24px;align-items:center;justify-content:center;overflow:auto}
+.visual-modal.show{display:flex;animation:personaFade .25s ease}.visual-modal-inner{width:min(100%,1500px);height:100%;display:flex;align-items:center;justify-content:center}
+.visual-modal-inner img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:16px;box-shadow:0 18px 60px #0005}
+.visual-modal-close{position:fixed;top:15px;right:20px;width:46px;height:46px;border:0;border-radius:50%;background:#fff9f1;color:#53204b;font-size:30px;cursor:pointer;z-index:2}
+@media(max-width:760px){.insight-columns{grid-template-columns:1fr}.visual-modal{padding:60px 10px 12px}}
+
 </style>
 </head>
 <body>
@@ -412,16 +432,34 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 <section class="chapter" id="empathise">
  <div class="chapter-inner">
   <div class="chapter-top"><div class="chapter-number">01</div><div><div class="section-kicker">FIRST, PEOPLE</div><h2 class="section-title">Empathise <span>♡</span></h2><p class="chapter-lead">Before thinking about features or technology, we explored the people at the heart of caregiving: caregivers and the people who depend on their support.</p></div></div>
-  <div class="tool-grid">
-   <article class="tool-card"><div class="tool-icon">🧍</div><h4>Persona mapping</h4><p>We organised a user's pains, gains, daily tasks, reality and personal context.</p><button onclick="openPersona()">Peek inside ↓</button><div class="tool-detail" id="persona">Meet our persona: a working daughter in her 30s who balances a full-time job with caring for her unwell mother. Her experience helped us understand the emotional, practical and time-related challenges faced by caregivers.
-<img src="persona-mapping.png.png" alt="Visual persona of a working daughter balancing her career and caring for her unwell mother" style="width:100%;height:auto;display:block;margin:20px auto;border-radius:18px;">
-</div></article>
-   <article class="tool-card"><div class="tool-icon">🫶</div><h4>Empathy mapping</h4><p>We considered what a user says, thinks, feels and does.</p><button onclick="openEmpathy()">Peek inside ↓</button><div class="tool-detail" id="empathy">Looking at these four perspectives helps reveal needs and frustrations that may not be obvious at first.</div></article>
-   <article class="tool-card"><div class="tool-icon">👥</div><h4>Stakeholder analysis</h4><p>We identified people and groups connected to, influencing or affected by the product.</p><button onclick="reveal('stakeholders')">Peek inside ↓</button><div class="tool-detail" id="stakeholders">We used stakeholder mapping and a power–interest matrix to think about whose needs and involvement matter.</div></article>
-   <article class="tool-card"><div class="tool-icon">🗺️</div><h4>Journey mapping</h4><p>We explored an experience through its different touchpoints and emotional highs and lows.</p><button onclick="reveal('journeytool')">Peek inside ↓</button><div class="tool-detail" id="journeytool">Journey mapping helps identify where an experience becomes difficult and where improvements may make a difference.</div></article>
-  </div>
-  <div class="note-strip"><span>💗</span><p><b>What this stage gave us:</b> a people-first perspective. We kept the caregiver as the primary user and the bedridden patient as the secondary user in mind while shaping the concept.</p></div>
- </div>
+  <div class="tool-grid empathy-experience">
+ <article class="tool-card empathy-tool-card"><div class="tool-icon">🧍</div><h4>Persona mapping</h4><p>We built a picture of a working daughter balancing a full-time job with caring for her unwell mother.</p>
+  <div class="activity-actions"><button onclick="openVisual('personaModal')">View persona map ↗</button></div>
+  <button class="insight-toggle" aria-expanded="false" onclick="toggleInsight(this)">What we discovered <span>⌄</span></button>
+  <div class="insight-panel"><b>Ananya's world is split between two responsibilities.</b><ul><li>She wants her mother to recover and to spend meaningful time with her.</li><li>Work commitments make it difficult to be physically present throughout the day.</li><li>She currently relies on phone alarms, notepads and manual reminders.</li></ul><b>Takeaway:</b> Caregiving is not one task. It is a continuous responsibility that has to fit around the caregiver's own life.<div><span class="insight-label">Time pressure</span><span class="insight-label">Mental load</span><span class="insight-label">Need for coordination</span></div></div>
+ </article>
+ <article class="tool-card empathy-tool-card"><div class="tool-icon">🫶</div><h4>Empathy mapping</h4><p>We looked at what Ananya says, thinks, does and feels to understand the experience beyond the visible tasks.</p>
+  <div class="activity-actions"><button onclick="openVisual('empathyModal')">View empathy map ↗</button></div>
+  <button class="insight-toggle" aria-expanded="false" onclick="toggleInsight(this)">What we discovered <span>⌄</span></button>
+  <div class="insight-panel"><b>The practical workload is connected to an emotional workload.</b><ul><li><b>Says:</b> remembering medicines and appointments is difficult.</li><li><b>Thinks:</b> worries about missed medicines, emergencies and whether she is providing enough care.</li><li><b>Does:</b> sets alarms, maintains records and books appointments.</li><li><b>Feels:</b> overwhelmed and exhausted, but relieved when the patient is doing well.</li></ul><b>Takeaway:</b> A useful solution should reduce the effort of remembering and organising care, while helping the caregiver feel more reassured.<div><span class="insight-label">Emotional reassurance</span><span class="insight-label">Reliable reminders</span><span class="insight-label">One organised place</span></div></div>
+ </article>
+ <article class="tool-card empathy-tool-card"><div class="tool-icon">👥</div><h4>Stakeholder analysis</h4><p>We mapped the people and organisations connected to CareNest using Mendelow's Power–Interest Matrix.</p>
+  <div class="activity-actions"><button onclick="openVisual('stakeholderModal')">View Mendelow matrix ↗</button></div>
+  <button class="insight-toggle" aria-expanded="false" onclick="toggleInsight(this)">What we discovered <span>⌄</span></button>
+  <div class="insight-panel"><b>Different stakeholders need different levels of involvement.</b><ul><li><b>Manage closely:</b> primary caregiver, development team and investors in the proposed project context.</li><li><b>Keep informed:</b> patients, family members and competitors as placed in the team's matrix.</li><li><b>Keep satisfied / monitor:</b> regulatory, insurance, legal, cybersecurity, healthcare and workplace-related stakeholders shown in the matrix.</li></ul><b>Takeaway:</b> CareNest must be easy for caregivers and patients to use, while also considering trust, privacy, healthcare context and the people who influence adoption.<div><span class="insight-label">User needs</span><span class="insight-label">Trust & privacy</span><span class="insight-label">Stakeholder coordination</span></div></div>
+ </article>
+ <article class="tool-card empathy-tool-card"><div class="tool-icon">🗺️</div><h4>Journey mapping</h4><p>We followed Ananya's experience across five stages and traced how her emotions change along the way.</p>
+  <div class="activity-actions"><button onclick="openVisual('journeyModal')">View caregiver journey ↗</button></div>
+  <button class="insight-toggle" aria-expanded="false" onclick="toggleInsight(this)">What we discovered <span>⌄</span></button>
+  <div class="insight-panel"><b>The most difficult point is when care tasks begin to feel unmanageable.</b><ul><li><b>Anticipate:</b> she feels overwhelmed and worries about managing everything alone.</li><li><b>Enter / Engage:</b> exploring and using a more organised support system brings hope and relief.</li><li><b>Exit / Reflect:</b> she feels more reassured, organised and confident about the care being provided.</li></ul><b>Takeaway:</b> The opportunity is to make everyday care easier to organise and to give caregivers a clearer view of what has been done and what still needs attention.<div><span class="insight-label">Reduce friction</span><span class="insight-label">Clear progress</span><span class="insight-label">Peace of mind</span></div></div>
+ </article>
+</div>
+<div class="empathise-insight"><div class="section-kicker" style="color:#f6b6d5">CONNECTING THE DOTS</div><h3>What did all these activities tell us? 💜</h3>
+ <p>Across the four activities, one pattern kept appearing: caregivers are not short of care or concern. They are short of time, mental space and one reliable way to keep everyday care organised.</p>
+ <div class="insight-columns"><div class="insight-column"><strong>01 · The human need</strong><p>Caregivers want to feel confident that important needs are not being missed, even when they are away.</p></div><div class="insight-column"><strong>02 · The practical gap</strong><p>Medicines, appointments, records and daily requests can become scattered across alarms, notes and conversations.</p></div><div class="insight-column"><strong>03 · The design opportunity</strong><p>Bring essential care information and everyday support into one simple, accessible experience for both caregiver and patient.</p></div></div>
+ <div class="insight-flow"><span>People & emotions</span><b>→</b><span>Caregiving needs</span><b>→</b><span>CareNest direction</span></div>
+</div>
+<div class="note-strip"><span>➡️</span><p><b>How this shaped our next step:</b> these insights guided us into the Define stage, where we narrowed the broad caregiving challenge into a clearer problem to solve.</p></div>
 </section>
 
 <section class="chapter" id="define" style="background:#fff0e8">
@@ -563,41 +601,25 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
  <p style="margin-top:14px">Our Design Thinking Journey · Made with care 💜</p>
 </footer>
 <button class="back-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<div id="personaModal" class="persona-modal" onclick="closePersona()">
-  <button class="persona-close" onclick="closePersona()" aria-label="Close">×</button>
-  <div class="persona-modal-content" onclick="event.stopPropagation()">
-    <img src="persona-mapping.png.png" alt="CareNest visual persona mapping">
-  </div>
-</div>
-  
-<div id="empathyModal" class="persona-modal" onclick="closeEmpathy()">
-  <button class="persona-close" onclick="closeEmpathy()" aria-label="Close">×</button>
-  <div class="persona-modal-content" onclick="event.stopPropagation()">
-    <img src="empathy-mapping.png" alt="CareNest empathy mapping">
-  </div>
-</div>
-
-  <script>
-function openPersona(){
-  document.getElementById('personaModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
+<div id="personaModal" class="visual-modal" onclick="closeVisual('personaModal')"><button class="visual-modal-close" onclick="closeVisual('personaModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="persona-mapping.png.png" alt="Persona mapping: Ananya, the working daughter"></div></div>
+<div id="empathyModal" class="visual-modal" onclick="closeVisual('empathyModal')"><button class="visual-modal-close" onclick="closeVisual('empathyModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="empathy-mapping.png" alt="Empathy map showing what Ananya says, thinks, does and feels"></div></div>
+<div id="stakeholderModal" class="visual-modal" onclick="closeVisual('stakeholderModal')"><button class="visual-modal-close" onclick="closeVisual('stakeholderModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="stakeholder-analysis.png" alt="Mendelow Power–Interest Matrix for CareNest stakeholders"></div></div>
+<div id="journeyModal" class="visual-modal" onclick="closeVisual('journeyModal')"><button class="visual-modal-close" onclick="closeVisual('journeyModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="Caregiver Journey Map.png" alt="Ananya's caregiver journey map"></div></div>
+<script>
+function openVisual(id){
+ const modal=document.getElementById(id);if(!modal)return;
+ modal.classList.add('show');document.body.style.overflow='hidden';
 }
-
-function closePersona(){
-  document.getElementById('personaModal').classList.remove('show');
-  document.body.style.overflow = '';
+function closeVisual(id){
+ const modal=document.getElementById(id);if(!modal)return;
+ modal.classList.remove('show');
+ if(!document.querySelector('.visual-modal.show'))document.body.style.overflow='';
 }
-  function openEmpathy(){
-  document.getElementById('empathyModal').classList.add('show');
-  document.body.style.overflow = 'hidden';
+function toggleInsight(button){
+ const panel=button.nextElementSibling,opening=!panel.classList.contains('open');
+ panel.classList.toggle('open',opening);button.setAttribute('aria-expanded',String(opening));
+ button.querySelector('span:last-child').textContent=opening?'⌃':'⌄';
 }
-
-function closeEmpathy(){
-  document.getElementById('empathyModal').classList.remove('show');
-  document.body.style.overflow = '';
-}  
-    
-
 const bmcContent = {
   segments: {
     number:"01", icon:"👥", title:"Customer Segments",
@@ -808,7 +830,4 @@ document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('c
 </script>
 </body>
 </html>
-
-
-
 
