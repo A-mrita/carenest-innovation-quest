@@ -188,8 +188,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
   grid-template-columns: repeat(5, minmax(0, 1fr));
   grid-template-rows: minmax(190px, auto) minmax(190px, auto) minmax(155px, auto);
   grid-template-areas:
-    "partners activities value relationships segments"
-    "partners resources value channels segments"
+    "segments value channels relationships resources"
+    "segments value channels activities partners"
     "costs costs costs revenue revenue";
   gap: 12px;
   padding: 22px;
@@ -277,8 +277,6 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 .bmc-resources { grid-area: resources; background: linear-gradient(145deg,#d9edff,#b9d9fa); }
 .bmc-propositions {
   grid-area: value;
-  grid-row: 1 / 3;
-  grid-column: 3 / 4;
   background: linear-gradient(145deg,#e5d7ff,#c8b1f1);
 }
 .bmc-relationships { grid-area: relationships; background: linear-gradient(145deg,#ffdfd8,#ffbfb0); }
@@ -294,11 +292,11 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
     grid-template-areas:
-      "partners activities"
-      "partners resources"
-      "value relationships"
-      "value channels"
-      "segments segments"
+      "segments value"
+      "segments value"
+      "channels relationships"
+      "resources activities"
+      "partners partners"
       "costs costs"
       "revenue revenue";
     padding: 12px;
@@ -315,17 +313,53 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
   .bmc-board {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "partners"
-      "activities"
-      "resources"
-      "value"
-      "relationships"
-      "channels"
       "segments"
+      "value"
+      "channels"
+      "relationships"
+      "resources"
+      "activities"
+      "partners"
       "costs"
       "revenue";
   }
 }
+
+
+/* CARENEST BUSINESS CANVAS DETAIL MODALS */
+.bmc-detail-overlay{position:fixed;inset:0;z-index:10000;background:rgba(35,20,55,.78);backdrop-filter:blur(9px);display:flex;align-items:center;justify-content:center;padding:18px;overflow-y:auto}
+.bmc-detail{background:linear-gradient(145deg,#fffaff,#f2eaff,#fff4ed);width:min(100%,1120px);max-height:94vh;overflow-y:auto;border-radius:28px;padding:clamp(20px,4vw,42px);position:relative;box-shadow:0 25px 80px #160b2d66;color:#39264f}
+.bmc-detail-close{position:sticky;top:0;float:right;border:0;background:#fff;border-radius:50%;width:42px;height:42px;font-size:25px;cursor:pointer;color:#563b72;z-index:3;box-shadow:0 4px 14px #35204b18}
+.bmc-detail-kicker{color:#8759a8;font-weight:900;letter-spacing:3px;font-size:11px;text-transform:uppercase}
+.bmc-detail h2{font-size:clamp(30px,5vw,46px);margin:10px 0 8px;line-height:1.1;color:#35204b}
+.bmc-detail-lead{font-size:16px;line-height:1.75;color:#695879;max-width:850px}
+.bmc-detail-section{margin-top:25px}
+.bmc-detail-section h3{font-size:21px;color:#35204b;margin-bottom:13px}
+.bmc-detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:13px}
+.bmc-info-card{background:white;border:1px solid #eadcf4;border-radius:18px;padding:18px;box-shadow:0 6px 18px #39254a09}
+.bmc-info-card .emoji{font-size:27px;margin-bottom:8px}
+.bmc-info-card h4{font-size:16px;color:#563b72;margin-bottom:6px}
+.bmc-info-card p{font-size:13px;line-height:1.65;color:#705f7e}
+.bmc-flow{display:flex;flex-wrap:wrap;align-items:stretch;justify-content:center;gap:9px;background:linear-gradient(120deg,#ead8fa,#f9dce9);padding:18px;border-radius:20px}
+.bmc-flow-step{background:white;border-radius:15px;padding:14px 17px;min-width:130px;flex:1;text-align:center}
+.bmc-flow-step b{display:block;color:#563b72;margin:5px 0}
+.bmc-flow-step small{color:#786b82;line-height:1.4}
+.bmc-arrow{align-self:center;font-size:24px;color:#80539b}
+.bmc-highlight{background:#eee2fa;border-radius:18px;padding:19px;line-height:1.75;color:#5e4a70}
+.bmc-note{font-size:12px;color:#887b94;line-height:1.6;margin-top:17px}
+.bmc-feature-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.bmc-feature{display:flex;gap:12px;align-items:flex-start;background:white;border-radius:16px;padding:15px;border:1px solid #eadcf4}
+.bmc-feature span{font-size:25px}.bmc-feature b{display:block;color:#563b72;margin-bottom:4px}.bmc-feature small{color:#786b82;line-height:1.5}
+.bmc-bar-list{display:grid;gap:12px}
+.bmc-bar-row{display:grid;grid-template-columns:minmax(125px,1fr) 2fr auto;gap:10px;align-items:center;font-size:12px;color:#665575}
+.bmc-bar-track{height:13px;background:#eee7f4;border-radius:99px;overflow:hidden}
+.bmc-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#b995dc,#f4a9c8)}
+.bmc-number{font-weight:900;color:#563b72;white-space:nowrap}
+.bmc-stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.bmc-stat{background:white;border-radius:17px;padding:17px;text-align:center;border:1px solid #eadcf4}
+.bmc-stat strong{display:block;font-size:clamp(21px,3vw,29px);color:#63358a;margin:5px 0}
+.bmc-stat small{color:#786b82}
+@media(max-width:560px){.bmc-detail-overlay{padding:8px}.bmc-detail{border-radius:20px;padding:17px}.bmc-bar-row{grid-template-columns:1fr auto}.bmc-bar-track{grid-column:1/-1;grid-row:2}}
 
 </style>
 </head>
@@ -563,147 +597,205 @@ function closeEmpathy(){
   document.body.style.overflow = '';
 }  
     
-function openBMC(section){
-  if(section !== 'partners') return;
 
-  let modal = document.getElementById('bmcDetailModal');
-
-  if(!modal){
-    modal = document.createElement('div');
-    modal.id = 'bmcDetailModal';
-    modal.style.cssText = `
-      position:fixed; inset:0; z-index:9999;
-      background:rgba(35,20,55,.78);
-      backdrop-filter:blur(9px);
-      display:flex; align-items:center; justify-content:center;
-      padding:22px; overflow-y:auto;
-    `;
-    document.body.appendChild(modal);
+const bmcContent = {
+  segments: {
+    number:"01", icon:"👥", title:"Customer Segments",
+    lead:"Caregivers are at the heart of CareNest. We empower those who give care, so every life receives better care.",
+    section:"Who are we serving?",
+    cards:[
+      ["💗","Caregivers first","Family and professional caregivers who organise and provide day-to-day care. They are the primary users of CareNest."],
+      ["🧓","Those we care for","Elderly individuals and patients who need regular assistance. They are the secondary users of the platform."],
+      ["🏥","Partners in care","Hospitals, nursing homes and home healthcare agencies connected to the care journey."],
+      ["🤝","Stronger together","Family members involved in supporting, coordinating and sharing care responsibilities."]
+    ],
+    highlight:"The main focus is the caregiver, while the patient remains an essential part of the experience. CareNest is designed to make coordination easier for both."
+  },
+  value: {
+    number:"02", icon:"💎", title:"Value Propositions",
+    lead:"CareNest unifies essential care activities in one simple platform, bringing clarity, consistency and peace of mind to every day of caregiving.",
+    section:"Six core features in one connected platform",
+    features:[
+      ["⏰","Medication reminders","Timely alerts for every dose."],
+      ["📅","Appointment tracker","Keep track of scheduled visits."],
+      ["📁","Document storage","Keep important records safe and accessible."],
+      ["🩺","Doctor's instructions storage","Store and access instructions whenever needed."],
+      ["📝","Daily care log","Track daily activities and health updates effortlessly."],
+      ["👨‍👩‍👧","Caregiver collaboration","Stay connected and coordinate care together."]
+    ],
+    highlight:"Less confusion for caregivers. Better organisation for better care. Instead of switching between scattered reminders, notes and records, essential care activities can be brought together in one place."
+  },
+  channels: {
+    number:"03", icon:"📡", title:"Channels",
+    lead:"CareNest reaches caregivers, patients and care organisations through digital platforms and healthcare connections.",
+    section:"How will CareNest reach its users?",
+    cards:[
+      ["📲","Digital stores","Google Play Store and Apple App Store."],
+      ["🌐","Official website","A central place to learn about CareNest and access information."],
+      ["📣","Social media & digital advertisements","Build awareness and introduce the platform to potential users."],
+      ["🏥","Healthcare partnerships","Hospitals, clinics, home healthcare agencies, nursing homes and elderly-care centres."],
+      ["🎤","Awareness campaigns & demonstrations","Introduce the app and show how its features can support everyday caregiving."]
+    ],
+    flow:[
+      ["01","Discover","Hear about CareNest through digital channels or healthcare partners."],
+      ["02","Explore","Visit the website or learn about the features."],
+      ["03","Download","Get the app through a digital store."],
+      ["04","Use","Start organising everyday care activities."]
+    ]
+  },
+  relationships: {
+    number:"04", icon:"💗", title:"Customer Relationships",
+    lead:"CareNest aims to build customer trust through clear guidance, helpful support and a reliable experience over time.",
+    section:"How will we build customer trust?",
+    cards:[
+      ["👋","Simple onboarding","A smooth start that helps users understand the app and its main features."],
+      ["💬","Clear guidance","Easy-to-find help, instructions and answers when users need them."],
+      ["🤝","Supportive community","Usage assistance and support for caregivers as they use the platform."],
+      ["🔄","Listen and improve","Use feedback to identify difficulties and make the experience better."],
+      ["🛡️","Reliability and trust","Focus on dependable access, user confidence and long-term satisfaction."]
+    ],
+    highlight:"Caring connections. Trusted every day. The relationship should not end after download: users need guidance and support as their caregiving needs continue."
+  },
+  resources: {
+    number:"05", icon:"🧩", title:"Key Resources",
+    lead:"CareNest needs people, technology, physical infrastructure and financial support to build and maintain the platform.",
+    section:"What do we need to make CareNest work?",
+    cards:[
+      ["👩‍💻","Human resources","Software developers, UI/UX designers, technical support and healthcare professionals or consultants."],
+      ["📱","Technological resources","Mobile app, database and cloud storage, secure data management and development tools."],
+      ["💻","Physical resources","Computers and equipment, office or workspace, and internet connectivity."],
+      ["💰","Financial resources","Initial development investment, maintenance budget, marketing funds and operational funds."]
+    ],
+    highlight:"These resource groups work together: people build and support the product, technology powers it, physical resources enable the work, and funding sustains development and operations."
+  },
+  activities: {
+    number:"06", icon:"⚙️", title:"Key Activities",
+    lead:"These are the essential activities required to develop, launch, operate and continuously improve CareNest.",
+    section:"What must we do to deliver CareNest?",
+    flow:[
+      ["01","DEVELOP","Design and build CareNest with its core features."],
+      ["02","TEST","Test thoroughly and fix issues for reliability."],
+      ["03","LAUNCH","Deploy CareNest and onboard users smoothly."],
+      ["04","MAINTAIN","Keep improving, secure and up to date."]
+    ],
+    cards:[
+      ["🛠️","Develop and enhance features","Build and improve the six core features."],
+      ["🗄️","Manage information","Manage databases and protect user information."],
+      ["⏰","Maintain care records","Maintain medication reminders and appointment records."],
+      ["✨","Improve the experience","Improve user experience and app performance."],
+      ["🎧","Support users","Provide customer support and regular updates."],
+      ["🏥","Build partnerships","Build and sustain healthcare partnerships."]
+    ]
+  },
+  partners: {
+    number:"07", icon:"🤝", title:"Key Partners",
+    lead:"The people, organisations and service providers who can help CareNest deliver reliable, connected and accessible caregiving support.",
+    section:"Our partnership ecosystem",
+    flow:[
+      ["🏥","Healthcare","Hospitals, clinics, doctors and nurses."],
+      ["💜","CareNest","The connected caregiving platform."],
+      ["👨‍👩‍👧","Families","Caregivers and patients."]
+    ],
+    cards:[
+      ["🏥","Hospitals and clinics","Potential partners who can help connect users with healthcare services."],
+      ["🩺","Doctors and nurses","Share healthcare expertise and professional input."],
+      ["🏠","Home healthcare agencies","Connect CareNest with home-based caregiving services."],
+      ["🧓","Nursing homes and elderly-care centres","Help reach people who need regular assistance."],
+      ["🧪","Medical laboratories","Potential connections for medical testing and related services."],
+      ["☁️","Cloud hosting and technology providers","Support the platform's hosting, infrastructure and technical reliability."],
+      ["👩‍⚕️","Healthcare professionals and consultants","Provide domain knowledge and guidance."]
+    ],
+    highlight:"Partner benefits: share expertise, expand reach and accelerate growth. Stronger together for better care outcomes.",
+    note:"These are proposed partnership categories for the CareNest concept, not confirmed business agreements."
+  },
+  cost: {
+    number:"08", icon:"🧮", title:"Cost Structure",
+    lead:"CareNest has an initial investment to develop and launch the platform, followed by monthly expenses to keep it running.",
+    section:"One-time investment",
+    stats:[["₹2,00,000","Initial investment"],["₹45,000","Monthly operating cost"]],
+    bars:[
+      ["Application development & testing",100000],
+      ["UI/UX design & improvements",20000],
+      ["Data security & privacy setup",30000],
+      ["Marketing & launch",20000],
+      ["Software tools & initial setup",30000]
+    ],
+    monthly:[
+      ["Cloud hosting & database",4000],
+      ["Application maintenance",15000],
+      ["Customer support",8000],
+      ["Marketing & advertising",10000],
+      ["Software & security tools",5000],
+      ["Administrative expenses",3000]
+    ],
+    note:"All figures are the hypothetical academic estimates shown in the CareNest Business Canvas."
+  },
+  revenue: {
+    number:"09", icon:"📈", title:"Revenue Streams",
+    lead:"CareNest can support its ongoing costs through a combination of individual subscriptions, institutional subscriptions, training and additional accounts.",
+    section:"Revenue sources",
+    cards:[
+      ["👤","Individual premium subscription","Free basic plan; ₹99/month or ₹999/year for premium."],
+      ["🏢","Institutional subscription","₹3,999/month per institution (listed price in the canvas)."],
+      ["🎓","Caregiver training / onboarding","₹2,500 per session."],
+      ["➕","Additional caregiver accounts","₹49/month for each additional account."],
+      ["🤝","Future institutional licensing","Customised long-term packages."]
+    ],
+    stats:[["₹54,695","Illustrative monthly revenue"],["₹45,000","Monthly operating expenses"],["₹9,695","Illustrative operating surplus"]],
+    bars:[
+      ["Premium subscriptions · 300 × ₹99",29700],
+      ["Institutional subscriptions · 5 × ₹2,999",19995],
+      ["Training sessions · 2 × ₹2,500",5000]
+    ],
+    note:"The illustrative example in the presentation calculates institutional revenue as 5 × ₹2,999 = ₹19,995, although the listed institutional subscription price is ₹3,999/month. Both figures are retained as shown in the PPT; please confirm the intended institutional price before presenting. Figures are hypothetical academic estimates, excluding taxes, payment fees and unexpected expenses."
   }
+};
 
-  modal.innerHTML = `
-    <div style="
-      background:linear-gradient(145deg,#fffaff,#f2eaff,#fff4ed);
-      width:min(100%,1050px); max-height:92vh; overflow-y:auto;
-      border-radius:28px; padding:clamp(22px,4vw,42px);
-      position:relative; box-shadow:0 25px 80px #160b2d66;
-      color:#39264f; font-family:inherit;
-    ">
-      <button onclick="document.getElementById('bmcDetailModal').remove()"
-        style="position:sticky;top:0;float:right;border:0;
-        background:#fff;border-radius:50%;width:42px;height:42px;
-        font-size:24px;cursor:pointer;color:#563b72;z-index:2">×</button>
-
-      <div style="color:#8759a8;font-weight:800;letter-spacing:3px;font-size:12px">
-        CARENEST BUSINESS MODEL · 01
-      </div>
-
-      <h1 style="font-size:clamp(30px,5vw,46px);margin:12px 0 8px">
-        🤝 Key Partners
-      </h1>
-
-      <p style="font-size:17px;line-height:1.7;color:#695879;max-width:750px">
-        The people, organisations and service providers who help CareNest
-        deliver reliable, connected and accessible caregiving support.
-      </p>
-
-      <div style="background:linear-gradient(120deg,#e9d4fa,#f9dce9);
-        border-radius:20px;padding:22px;margin:25px 0">
-        <div style="font-size:12px;font-weight:800;letter-spacing:2px">
-          OUR PARTNERSHIP ECOSYSTEM
-        </div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;
-          justify-content:center;gap:12px;margin-top:18px;text-align:center">
-          <div style="background:white;border-radius:16px;padding:16px;flex:1;min-width:125px">
-            <div style="font-size:30px">🏥</div><b>Healthcare</b>
-            <small style="display:block;margin-top:5px">Doctors & hospitals</small>
-          </div>
-          <div style="font-size:24px">↔</div>
-          <div style="background:white;border-radius:16px;padding:16px;flex:1;min-width:125px">
-            <div style="font-size:30px">💜</div><b>CareNest</b>
-            <small style="display:block;margin-top:5px">One connected platform</small>
-          </div>
-          <div style="font-size:24px">↔</div>
-          <div style="background:white;border-radius:16px;padding:16px;flex:1;min-width:125px">
-            <div style="font-size:30px">👨‍👩‍👧</div><b>Families</b>
-            <small style="display:block;margin-top:5px">Caregivers & patients</small>
-          </div>
-        </div>
-      </div>
-
-      <h2 style="margin:30px 0 15px">Who do we partner with?</h2>
-
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">🩺</div>
-          <h3>Doctors & Medical Professionals</h3>
-          <p style="line-height:1.6;color:#705f7e">Help provide medical guidance, care recommendations and professional input for patient-related information.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Reliable healthcare guidance and continuity of care.</p>
-        </div>
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">🏥</div>
-          <h3>Hospitals & Clinics</h3>
-          <p style="line-height:1.6;color:#705f7e">Potential partners for appointment coordination, follow-ups and access to healthcare services.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Connections to healthcare facilities and services.</p>
-        </div>
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">💊</div>
-          <h3>Pharmacies & Medicine Providers</h3>
-          <p style="line-height:1.6;color:#705f7e">Potential collaborators for medicine availability, prescription fulfilment and timely refills.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Support for smoother medicine management.</p>
-        </div>
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">💻</div>
-          <h3>Technology & Cloud Providers</h3>
-          <p style="line-height:1.6;color:#705f7e">Provide the technical infrastructure required to host, maintain and improve the CareNest platform.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Secure data storage, reliable access and platform maintenance.</p>
-        </div>
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">🚑</div>
-          <h3>Emergency & Support Services</h3>
-          <p style="line-height:1.6;color:#705f7e">Potential connections for emergency assistance and support when patients need urgent help.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Better access to timely assistance.</p>
-        </div>
-
-        <div style="background:white;border-radius:18px;padding:20px;border:1px solid #eadcf4">
-          <div style="font-size:30px">🤝</div>
-          <h3>Caregiving & Community Organisations</h3>
-          <p style="line-height:1.6;color:#705f7e">Help us understand caregiver challenges and identify opportunities to reach families who need support.</p>
-          <b style="color:#8759a8">Their contribution</b>
-          <p>Community connections and caregiver awareness.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:25px;background:#eee2fa;border-radius:18px;padding:22px">
-        <h3 style="margin-top:0">✨ Why are these partnerships important?</h3>
-        <p style="line-height:1.8;margin-bottom:0">
-          CareNest is not intended to replace doctors, hospitals or caregivers.
-          Its purpose is to connect everyday caregiving activities with the
-          people and services that support patient well-being. These
-          partnerships can help make that experience more organised,
-          accessible and dependable.
-        </p>
-      </div>
-
-      <p style="font-size:12px;color:#887b94;margin-top:20px">
-        Note: These are proposed partnership categories for the CareNest concept,
-        not confirmed business agreements.
-      </p>
-    </div>
-  `;
+function bmcCards(cards){
+  return `<div class="bmc-detail-grid">${cards.map(c=>`<article class="bmc-info-card"><div class="emoji">${c[0]}</div><h4>${c[1]}</h4><p>${c[2]}</p></article>`).join("")}</div>`;
 }
+function bmcFlow(items){
+  return `<div class="bmc-flow">${items.map((s,i)=>`${i?'<div class="bmc-arrow">→</div>':''}<div class="bmc-flow-step"><div style="font-size:25px">${s[0].length<=2?s[0]:""}</div><b>${s[1]}</b><small>${s[2]}</small></div>`).join("")}</div>`;
+}
+function bmcBars(items,max){
+  return `<div class="bmc-bar-list">${items.map(x=>`<div class="bmc-bar-row"><span>${x[0]}</span><div class="bmc-bar-track"><div class="bmc-bar-fill" style="width:${Math.max(2,x[1]/max*100)}%"></div></div><b class="bmc-number">₹${x[1].toLocaleString("en-IN")}</b></div>`).join("")}</div>`;
+}
+function openBMC(section){
+  const d=bmcContent[section];
+  if(!d)return;
+  document.getElementById("bmcDetailModal")?.remove();
+  const modal=document.createElement("div");
+  modal.id="bmcDetailModal";
+  modal.className="bmc-detail-overlay";
+  modal.setAttribute("role","dialog");
+  modal.setAttribute("aria-modal","true");
+  modal.innerHTML=`<article class="bmc-detail">
+    <button class="bmc-detail-close" aria-label="Close" onclick="closeBMC()">×</button>
+    <div class="bmc-detail-kicker">CARENEST BUSINESS MODEL · BLOCK ${d.number}</div>
+    <h2>${d.icon} ${d.title}</h2>
+    <p class="bmc-detail-lead">${d.lead}</p>
+    <div class="bmc-detail-section"><h3>${d.section}</h3>
+      ${d.flow?bmcFlow(d.flow):""}
+      ${d.cards?bmcCards(d.cards):""}
+      ${d.features?`<div class="bmc-feature-list">${d.features.map(f=>`<div class="bmc-feature"><span>${f[0]}</span><div><b>${f[1]}</b><small>${f[2]}</small></div></div>`).join("")}</div>`:""}
+      ${d.stats?`<div class="bmc-stat-row">${d.stats.map(s=>`<div class="bmc-stat"><strong>${s[0]}</strong><small>${s[1]}</small></div>`).join("")}</div>`:""}
+      ${d.bars?`<div class="bmc-detail-section"><h3>${section==="cost"?"Initial investment breakdown":"Illustrative monthly revenue breakdown"}</h3>${bmcBars(d.bars,Math.max(...d.bars.map(x=>x[1])))}</div>`:""}
+      ${d.monthly?`<div class="bmc-detail-section"><h3>Monthly operating cost breakdown</h3>${bmcBars(d.monthly,Math.max(...d.monthly.map(x=>x[1])))}</div>`:""}
+      ${d.highlight?`<div class="bmc-detail-section bmc-highlight">✨ ${d.highlight}</div>`:""}
+      ${d.note?`<p class="bmc-note">${d.note}</p>`:""}
+    </div>
+  </article>`;
+  modal.addEventListener("click",e=>{if(e.target===modal)closeBMC();});
+  document.body.appendChild(modal);
+  document.body.style.overflow="hidden";
+}
+function closeBMC(){
+  document.getElementById("bmcDetailModal")?.remove();
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeBMC();});
 
-    function reveal(id){
+function reveal(id){
  const panel=document.getElementById(id);
  const opening=!panel.classList.contains('open');
  panel.classList.toggle('open');
