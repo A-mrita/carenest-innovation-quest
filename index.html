@@ -430,6 +430,7 @@ footer p{font-size:0.75rem;color:#e3d6e9;line-height:1.7}
 #define .tool-grid .tool-card:hover{box-shadow:0 0.875rem 1.75rem #35204b30}
 #define .tool-grid .tool-card p{color:#65556f}
 #define .tool-card button{color:var(--purple)}
+#define .activity-actions button{color:white}
 #define .define-next-step{margin-top:1.5625rem}
 
 #ideate{--ideate-heading-size:clamp(1.875rem,4vw,2.9375rem);background:var(--peach);isolation:isolate}
@@ -660,7 +661,22 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
  <div class="chapter-inner">
   <div class="chapter-top"><div class="chapter-number">02.</div><div><div class="section-kicker">ZOOM IN ON THE NEED</div><h2 class="section-title">Define <span>♡</span></h2><p class="chapter-lead">After exploring the people and their experiences, we focused on identifying the challenge our product should address.</p></div></div>
   <div class="tool-grid">
-   <article class="tool-card"><h4>Problem identification</h4><p>We identified a user, explored daily challenges, selected an important problem and considered possible solutions.</p><button onclick="reveal('problem')">Peek inside</button><div class="tool-detail" id="problem">The activity guided us from choosing a user group to identifying a specific challenge worth addressing.</div></article>
+   <article class="tool-card empathy-tool-card">
+    <h4>Problem identification</h4>
+    <p>We mapped the daily tasks, emotional strain, and coordination gaps that make caregiving difficult for someone like Ananya.</p>
+    <div class="activity-actions"><button type="button" onclick="openVisual('problemIdentificationModal')">View problem identification ↗</button></div>
+    <button type="button" class="insight-toggle" aria-expanded="false" aria-controls="problem" onclick="toggleInsight(this)">What we discovered <span aria-hidden="true">⌄</span></button>
+    <div class="insight-panel" id="problem">
+     <b>Caregiving creates a coordination burden that builds across the day.</b>
+     <ul>
+      <li><b>Daily tasks compete for attention.</b> Appointments, follow-ups, medication routines, and meals all need tracking alongside work and personal commitments.</li>
+      <li><b>The work takes an emotional toll.</b> Worry, guilt, and exhaustion can build when one person feels responsible for keeping everything on track.</li>
+      <li><b>Information is scattered.</b> Keeping records up to date, sharing them with family, and finding timely support all add work.</li>
+     </ul>
+     <b>Takeaway:</b> Focus CareNest on making everyday care tasks and records easier to find, track, and coordinate.
+     <div><span class="insight-label">Daily routines</span><span class="insight-label">Mental load</span><span class="insight-label">Care coordination</span></div>
+    </div>
+   </article>
    <article class="tool-card"><h4>Problem sizing</h4><p>We considered the user segment, frequency, severity or cost, and factors that could affect the problem over time.</p><button onclick="reveal('sizing')">Peek inside</button><div class="tool-detail" id="sizing">Problem sizing encouraged us to make our assumptions visible and think about how significant the selected problem could be.</div></article>
   </div>
   <div class="tool-card define-next-step"><p><b>What this stage gave us:</b> This stage gave us a clearer direction for the solution. We moved beyond a broad topic and focused on a specific caregiving challenge.</p></div>
@@ -872,6 +888,7 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
     </g>
   </svg>
 </button>
+<div id="problemIdentificationModal" class="visual-modal" onclick="closeVisual('problemIdentificationModal')"><button class="visual-modal-close" onclick="closeVisual('problemIdentificationModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/problem-identification.png" alt="Problem identification board showing Ananya’s day-to-day caregiving challenges, emotional strain, and gaps in care coordination"></div></div>
 <div id="personaModal" class="visual-modal" onclick="closeVisual('personaModal')"><button class="visual-modal-close" onclick="closeVisual('personaModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/persona-mapping.png.png" alt="Persona mapping: Ananya, the working daughter"></div></div>
 <div id="empathyModal" class="visual-modal" onclick="closeVisual('empathyModal')"><button class="visual-modal-close" onclick="closeVisual('empathyModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/empathy-mapping.png" alt="Empathy map showing what Ananya says, thinks, does and feels"></div></div>
 <div id="stakeholderModal" class="visual-modal" onclick="closeVisual('stakeholderModal')"><button class="visual-modal-close" onclick="closeVisual('stakeholderModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/stakeholder-analysis.png" alt="Mendelow Power–Interest Matrix for CareNest stakeholders"></div></div>
