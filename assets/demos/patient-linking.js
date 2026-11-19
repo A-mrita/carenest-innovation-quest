@@ -91,8 +91,8 @@
     target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
     const bounds = target.getBoundingClientRect();
     const frame = phone.getBoundingClientRect();
-    touch.style.left = `${bounds.left + bounds.width / 2 - frame.left - 4}px`;
-    touch.style.top = `${bounds.top + bounds.height / 2 - frame.top - 4}px`;
+    touch.style.left = `${(bounds.left + bounds.width / 2 - frame.left) / frame.width * 100}%`;
+    touch.style.top = `${(bounds.top + bounds.height / 2 - frame.top) / frame.height * 100}%`;
     touch.style.opacity = '1';
   }
 
