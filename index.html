@@ -429,7 +429,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #ideate::before,
 #prototype::before,
 #future::before,
-#business-model::before{
+#business-model::before,
+#changes::before{
   content:"";
   position:absolute;
   inset:0;
@@ -469,6 +470,29 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #business-model .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
 #business-model .section-kicker{color:var(--purple)}
 #business-model .chapter-lead{color:#65556f}
+
+#changes{--changes-heading-size:clamp(30px,4vw,47px);background:linear-gradient(115deg,#bb8b96 0%,#c79a9d 32%,#dfb9af 51%,#c49597 72%,#bb8b96 100%);isolation:isolate}
+#changes .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#changes .section-kicker,#changes .chapter-lead{color:var(--plum)}
+#changes .section-title{font-size:var(--changes-heading-size)}
+#changes .tool-card{background:rgba(255,255,255,.76);box-shadow:0 8px 20px #35204b22}
+#changes .tool-card:hover{box-shadow:0 14px 28px #35204b30}
+#changes .tool-card h4{font-size:calc(var(--changes-heading-size) * .75);line-height:1.2;overflow-wrap:anywhere}
+#changes .tool-card p{color:#65556f}
+
+:is(#journey,#empathise,#define,#ideate,#prototype,#future,#business-model){
+  --section-sheen:linear-gradient(115deg,#35204b26 0%,#35204b0a 32%,#ffffff73 51%,#ffffff14 72%,#35204b26 100%);
+  background-image:var(--section-sheen);
+}
+#journey{background-image:var(--section-sheen),linear-gradient(145deg,#d7bde9,#c5a6df)}
+#empathise{background-color:#f1cd7c}
+#define{background-color:#dca4c6}
+#ideate{background-color:var(--peach)}
+#prototype{background-color:#edb2da}
+#future{background-color:#dfc29e}
+#business-model{background-image:var(--section-sheen),linear-gradient(145deg,#bddcf7,#a3c8ee)}
+:is(#journey,#empathise,#define,#ideate,#prototype,#future,#business-model) :is(.section-kicker,.section-intro,.chapter-lead),
+#journey .stage small{color:var(--plum)}
 .empathy-experience{margin-top:30px}.empathy-tool-card{display:flex;flex-direction:column;min-height:100%}
 .insight-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 15px;margin-top:12px;border:1px solid #eadcf4;border-radius:14px;background:#fbf5ff;color:#563b72;font-weight:800;text-align:left;cursor:pointer}
 .insight-toggle span:last-child{font-size:19px;transition:transform .2s}.insight-toggle[aria-expanded="true"] span:last-child{transform:rotate(180deg)}
@@ -488,6 +512,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 @media(max-width:760px){.insight-columns{grid-template-columns:1fr}.visual-modal{padding:60px 10px 12px}}
 
 </style>
+<link rel="stylesheet" href="assets/demos/patient-linking.css">
+<script src="assets/demos/patient-linking.js" defer></script>
 </head>
 <body>
 <nav class="site-nav">
@@ -679,6 +705,34 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 
   </div>
 
+</section>
+
+<section class="chapter" id="changes">
+  <div class="chapter-inner">
+    <div class="chapter-top">
+      <div class="chapter-number">07.</div>
+      <div>
+        <div class="section-kicker">IN THE FUTURE</div>
+        <h2 class="section-title">Changes <span>♡</span></h2>
+        <p class="chapter-lead">We’ll share proposed improvements here as they take shape.</p>
+      </div>
+    </div>
+    <div class="tool-grid">
+      <article class="tool-card">
+        <h4>Patient linking</h4>
+        <p>A caregiver enters the Patient ID shared with them to send a connection request. The patient receives an in-app notification showing the caregiver’s name and age, then chooses whether to allow the connection. Once approved, the patient’s name, ID, and illustration appear on the caregiver’s dashboard.</p>
+        <button type="button" id="open-linking-demo">Watch the linking demo ↗</button>
+      </article>
+      <article class="tool-card">
+        <h4>Scanner</h4>
+        <p>Explore ways to scan and capture care-related information.</p>
+      </article>
+      <article class="tool-card">
+        <h4>Multilogin</h4>
+        <p>Explore sign-in options for multiple users.</p>
+      </article>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -918,6 +972,38 @@ const topButton=document.querySelector('.back-top');
 window.addEventListener('scroll',()=>topButton.classList.toggle('show',window.scrollY>450));
 document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('click',()=>document.querySelector('.nav-links').classList.remove('open')));
 </script>
+<dialog class="linking-demo" id="linking-demo" aria-labelledby="linking-demo-title">
+  <header class="linking-demo-header">
+    <div>
+      <h2 id="linking-demo-title">Patient linking</h2>
+      <p>Concept simulation · Fictional accounts</p>
+    </div>
+    <form method="dialog"><button aria-label="Close demo" autofocus>×</button></form>
+  </header>
+  <p class="linking-status" aria-live="polite"></p>
+  <div class="linking-controls">
+    <button type="button" data-play>Pause</button>
+    <button type="button" data-replay>Replay</button>
+  </div>
+  <div class="linking-devices">
+    <div>
+      <h3 class="linking-device-label">Patient’s phone</h3>
+      <div class="linking-phone" data-device="patient">
+        <div class="linking-app-bar"><img src="assets/images/carenest-emblem.png" alt=""><strong>CareNest</strong></div>
+        <div class="linking-screen"></div>
+        <span class="linking-touch" aria-hidden="true"></span>
+      </div>
+    </div>
+    <div>
+      <h3 class="linking-device-label">Caregiver’s phone</h3>
+      <div class="linking-phone" data-device="caregiver">
+        <div class="linking-app-bar"><img src="assets/images/carenest-emblem.png" alt=""><strong>CareNest</strong></div>
+        <div class="linking-screen"></div>
+        <span class="linking-touch" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</dialog>
 </body>
 </html>
 
