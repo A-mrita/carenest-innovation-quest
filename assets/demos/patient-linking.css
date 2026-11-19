@@ -83,3 +83,50 @@
 @media (prefers-reduced-motion: reduce) {
   .linking-touch { transition: none; }
 }
+
+.scanner-demo .scanner-dashboard { padding-bottom: 76px; }
+.scanner-demo .scanner-fab {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 12px #35204b4d;
+}
+.scanner-fab svg { width: 26px; height: 26px; }
+.scanner-sample { width: 100%; max-height: 200px; object-fit: contain; }
+.scanner-demo .scanner-fields { gap: 5px; }
+.scanner-demo .scanner-fields button { margin-top: 6px; }
+.scanner-demo dd { margin: 0 0 8px; overflow-wrap: anywhere; }
+.scanner-demo dt { font-weight: 600; }
+
+.multilogin-demo { width: min(94vw, 440px); }
+.multilogin-demo .linking-app-bar span {
+  margin-left: auto;
+  border-radius: 999px;
+  background: #e1d3f1;
+  padding: 5px 9px;
+  font-size: 13px;
+}
+.multilogin-demo .linking-screen { min-height: 285px; }
+.multilogin-demo .multilogin-profile { background: linear-gradient(145deg, #eadbf7, #fbe8f4); }
+.multilogin-demo .multilogin-list { display: grid; gap: 7px; list-style: none; }
+.multilogin-demo .multilogin-list li {
+  border-radius: 12px;
+  background: #f3edf6;
+  color: #392b45;
+  padding: 9px 12px;
+}
+.multilogin-tabs { display: flex; background: #f2ebfa; }
+.multilogin-tabs button {
+  flex: 1;
+  padding: 12px 6px;
+  border: 0;
+  background: transparent;
+  color: #4b2677;
+  font: inherit;
+}
+.multilogin-tabs button[aria-current="page"] { background: #e1d3f1; font-weight: 600; }

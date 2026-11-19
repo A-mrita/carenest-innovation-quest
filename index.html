@@ -514,6 +514,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 </style>
 <link rel="stylesheet" href="assets/demos/patient-linking.css">
 <script src="assets/demos/patient-linking.js" defer></script>
+<script src="assets/demos/scanner.js" defer></script>
+<script src="assets/demos/multilogin.js" defer></script>
 </head>
 <body>
 <nav class="site-nav">
@@ -725,11 +727,13 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
       </article>
       <article class="tool-card">
         <h4>Scanner</h4>
-        <p>Explore ways to scan and capture care-related information.</p>
+        <p>Patients and caregivers could open the scanner from their own dashboards to capture a prescription. The scan would prefill a draft that they can review, correct, and save manually. Try this concept with an illustrated sample prescription and editable fields.</p>
+        <button type="button" id="open-scanner-demo">Try the scanner demo ↗</button>
       </article>
       <article class="tool-card">
         <h4>Multilogin</h4>
-        <p>Explore sign-in options for multiple users.</p>
+        <p>When a patient and caregiver share a device, they could keep both accounts available in CareNest. Each person would select their saved account to open the dashboard for their role, with the option to switch back from the caregiver’s More tab or the patient’s account area. The demo shows how both accounts could stay separate while making it easier to move between them.</p>
+        <button type="button" id="open-multilogin-demo">Try the Multilogin demo ↗</button>
       </article>
     </div>
   </div>
@@ -1003,6 +1007,31 @@ document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('c
       </div>
     </div>
   </div>
+</dialog>
+<dialog class="linking-demo scanner-demo" id="scanner-demo" aria-labelledby="scanner-demo-title">
+  <header class="linking-demo-header">
+    <div>
+      <h2 id="scanner-demo-title">Prescription scanner</h2>
+      <p>Concept simulation · Fictional prescription</p>
+    </div>
+    <form method="dialog"><button aria-label="Close scanner demo" autofocus>×</button></form>
+  </header>
+  <div class="linking-devices" id="scanner-devices"></div>
+</dialog>
+<dialog class="linking-demo multilogin-demo" id="multilogin-demo" aria-labelledby="multilogin-demo-title">
+  <header class="linking-demo-header">
+    <div><h2 id="multilogin-demo-title">Multilogin</h2><p>Concept simulation · Two fictional accounts on one device</p></div>
+    <form method="dialog"><button aria-label="Close Multilogin demo" autofocus>×</button></form>
+  </header>
+  <div class="linking-phone">
+    <div class="linking-app-bar"><img src="assets/images/carenest-emblem.png" alt=""><strong>CareNest</strong><span data-active-role></span></div>
+    <div class="linking-screen"></div>
+    <nav class="multilogin-tabs" aria-label="Demo phone navigation">
+      <button type="button" data-view="home">Home</button>
+      <button type="button" data-view="account">More</button>
+    </nav>
+  </div>
+  <p class="linking-status" aria-live="polite"></p>
 </dialog>
 </body>
 </html>
