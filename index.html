@@ -511,6 +511,34 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 .visual-modal-close{position:fixed;top:15px;right:20px;width:46px;height:46px;border:0;border-radius:50%;background:#fff9f1;color:#53204b;font-size:30px;cursor:pointer;z-index:2}
 @media(max-width:760px){.insight-columns{grid-template-columns:1fr}.visual-modal{padding:60px 10px 12px}}
 
+html.vine-scroll-ready{scrollbar-width:none;scrollbar-color:transparent transparent}
+html.vine-scroll-ready::-webkit-scrollbar{display:none}
+html.vine-scroll-ready::-webkit-scrollbar-track,
+html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
+.scroll-vine{
+  display:none;
+  position:fixed;
+  inset:0 0 auto auto;
+  z-index:21;
+  width:22px;
+  height:100vh;
+  height:100dvh;
+  pointer-events:none;
+  clip-path:inset(0 0 calc(100% - clamp(62px,var(--vine-progress,0%),100%)) 0);
+  filter:drop-shadow(0 0 1px #fff9f1);
+}
+.vine-scroll-ready .scroll-vine{display:block}
+.scroll-vine-stem,.scroll-vine-twist{fill:none;stroke:var(--plum);stroke-width:2.5;stroke-linecap:round}
+.scroll-vine-twist{stroke:#53204b;stroke-width:1.5}
+.scroll-vine-flower{fill:#f5b4d8;stroke:var(--plum);stroke-width:.6}
+.scroll-vine-centre{fill:#a95389}
+@media(forced-colors:active){
+  html.vine-scroll-ready{scrollbar-width:auto;scrollbar-color:auto}
+  html.vine-scroll-ready::-webkit-scrollbar{display:revert}
+  html.vine-scroll-ready::-webkit-scrollbar-track,
+  html.vine-scroll-ready::-webkit-scrollbar-thumb{background:revert}
+  .vine-scroll-ready .scroll-vine{display:none}
+}
 </style>
 <link rel="stylesheet" href="assets/demos/patient-linking.css">
 <script src="assets/demos/patient-linking.js" defer></script>
@@ -518,6 +546,21 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 <script src="assets/demos/multilogin.js" defer></script>
 </head>
 <body>
+<svg class="scroll-vine" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="scroll-vine-pattern" width="22" height="112" patternUnits="userSpaceOnUse">
+      <path class="scroll-vine-stem" d="M12 0C3 18 3 38 12 56S21 94 12 112"/>
+      <path class="scroll-vine-twist" d="M8 0C17 18 17 38 8 56S-1 94 8 112"/>
+      <path class="scroll-vine-stem" d="M6 23q4-5 9-7m0 63q-5-6-10-8"/>
+      <g class="scroll-vine-flower">
+        <path d="M15 12c-2-4 4-5 4-1 4-2 5 4 1 4 2 4-4 6-5 2-4 2-6-4-2-4-2-3 1-5 2-1Z"/>
+        <path d="M5 67c-2-4 4-5 4-1 4-2 5 4 1 4 2 4-4 6-5 2-4 2-6-4-2-4-2-3 1-5 2-1Z"/>
+      </g>
+      <g class="scroll-vine-centre"><circle cx="16.5" cy="14" r="1.2"/><circle cx="6.5" cy="69" r="1.2"/></g>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#scroll-vine-pattern)"/>
+</svg>
 <nav class="site-nav">
   <a class="brand" href="#top" aria-label="CareNest home">
     <img src="assets/images/carenest-emblem.png" alt="CareNest bird, heart and house emblem">
@@ -525,7 +568,7 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
   </a>
   <button class="menu-toggle" aria-label="Open navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
   <div class="nav-links">
-    <a href="#journey">Our journey</a><a href="#empathise">The stages</a><a href="#prototype">Our prototype</a><a href="#future">What's next</a>
+    <a href="#journey">Our journey</a><a href="#prototype">Prototype</a><a href="#future">Testing</a><a href="#changes">What's next</a>
   </div>
 </nav>
 
@@ -1033,6 +1076,7 @@ document.querySelectorAll('.nav-links a').forEach(link=>link.addEventListener('c
   </div>
   <p class="linking-status" aria-live="polite"></p>
 </dialog>
+<script src="assets/demos/scroll-vine.js" defer></script>
 </body>
 </html>
 
