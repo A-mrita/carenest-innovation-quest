@@ -470,6 +470,16 @@ footer p{font-size:0.75rem;color:#e3d6e9;line-height:1.7}
 #future .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
 #future .section-kicker{color:var(--purple)}
 #future .chapter-lead{color:#65556f}
+#future .tool-grid .tool-card{background:rgba(255,255,255,.76);box-shadow:0 0.5rem 1.25rem #35204b22}
+#future .tool-grid .tool-card:hover{box-shadow:0 0.875rem 1.75rem #35204b30}
+#future .tool-grid h4{font-size:calc(clamp(1.875rem,4vw,2.9375rem) * .75);line-height:1.2;overflow-wrap:anywhere}
+#future .tool-grid p{color:#65556f}
+#future .testing-screenshots{margin-top:.875rem}
+#future .testing-screenshots summary{width:fit-content;color:var(--purple);font-weight:bold;cursor:pointer}
+#future .testing-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,8rem),1fr));gap:.875rem;margin-top:.875rem}
+#future .testing-gallery a{display:block;border-radius:.75rem;overflow:hidden}
+#future .testing-gallery img{display:block;width:100%;height:auto}
+#future .testing-gallery figcaption{margin-top:.375rem;color:var(--plum);font-size:.8125rem;line-height:1.45}
 #future .testing-next-step{margin-top:1.5625rem}
 #future .testing-next-step h3{font-size:1.17rem;margin:0 0 0.5rem}
 
@@ -683,7 +693,49 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
 <section class="chapter" id="future">
  <div class="chapter-inner">
   <div class="chapter-top"><div class="chapter-number">05.</div><div><div class="section-kicker">A WORK IN PROGRESS</div><h2 class="section-title">Testing <span>♡</span></h2><p class="chapter-lead">A prototype is a starting point, not the finish line. Testing helps us understand what works, what feels confusing and what can be improved.</p></div></div>
-  <div class="tool-card testing-next-step"><h3>Our next milestone</h3><p>Prototype testing has not yet been completed. Our next step is to explore usability, caregiver workflows, patient assistance and opportunities for improvement with feedback from intended users.</p></div>
+  <div class="tool-grid">
+   <article class="tool-card">
+    <h4>Caregiver sign-in and navigation</h4>
+    <p>Sign in with an existing caregiver account and check that the Caregiver Dashboard opens. From Today’s overview, locate the medication count, the next appointment, and the most recent Care Log entry. Observe whether a first-time user can find these details without help.</p>
+    <details class="testing-screenshots">
+     <summary>View prototype screenshots</summary>
+     <div class="testing-gallery">
+      <figure><a href="assets/images/testing/todays-overview.png" target="_blank" rel="noopener"><img src="assets/images/testing/todays-overview.png" alt="Today’s overview with medication, appointment, and Care Log summaries" loading="lazy" decoding="async"></a><figcaption>Today’s overview with medication, appointment, and Care Log summaries</figcaption></figure>
+      <figure><a href="assets/images/testing/add-appointment.png" target="_blank" rel="noopener"><img src="assets/images/testing/add-appointment.png" alt="Appointment form with provider, location, date, and time fields" loading="lazy" decoding="async"></a><figcaption>Appointment form with provider, location, date, and time fields</figcaption></figure>
+      <figure><a href="assets/images/testing/save-appointment.png" target="_blank" rel="noopener"><img src="assets/images/testing/save-appointment.png" alt="Local save and reminder options for an appointment" loading="lazy" decoding="async"></a><figcaption>Local save and reminder options for an appointment</figcaption></figure>
+      <figure><a href="assets/images/testing/upcoming-appointments.png" target="_blank" rel="noopener"><img src="assets/images/testing/upcoming-appointments.png" alt="Upcoming appointments in the Visits tab" loading="lazy" decoding="async"></a><figcaption>Upcoming appointments in the Visits tab</figcaption></figure>
+      <figure><a href="assets/images/testing/appointment-actions.png" target="_blank" rel="noopener"><img src="assets/images/testing/appointment-actions.png" alt="Actions available on a saved appointment" loading="lazy" decoding="async"></a><figcaption>Actions available on a saved appointment</figcaption></figure>
+      <figure><a href="assets/images/testing/care-log-categories.png" target="_blank" rel="noopener"><img src="assets/images/testing/care-log-categories.png" alt="Care Log categories available when adding an entry" loading="lazy" decoding="async"></a><figcaption>Care Log categories available when adding an entry</figcaption></figure>
+     </div>
+    </details>
+   </article>
+   <article class="tool-card">
+    <h4>Add and find a medication record</h4>
+    <p>Open Meds, select Add medication, and enter details from a fictional sample prescription. Choose Save on this device, then return to Meds and check that the record appears with the details entered. Observe whether the form labels and local save option are clear.</p>
+    <details class="testing-screenshots">
+     <summary>View prototype screenshots</summary>
+     <div class="testing-gallery">
+      <figure><a href="assets/images/testing/add-medication.png" target="_blank" rel="noopener"><img src="assets/images/testing/add-medication.png" alt="Medication form with name, prescribed dosage, and schedule fields" loading="lazy" decoding="async"></a><figcaption>Medication form with name, prescribed dosage, and schedule fields</figcaption></figure>
+      <figure><a href="assets/images/testing/medication-schedule.png" target="_blank" rel="noopener"><img src="assets/images/testing/medication-schedule.png" alt="Medication timing, instructions, and dates" loading="lazy" decoding="async"></a><figcaption>Medication timing, instructions, and dates</figcaption></figure>
+      <figure><a href="assets/images/testing/save-medication.png" target="_blank" rel="noopener"><img src="assets/images/testing/save-medication.png" alt="Medication form with the Save on this device button" loading="lazy" decoding="async"></a><figcaption>Medication form with the Save on this device button</figcaption></figure>
+      <figure><a href="assets/images/testing/saved-medication.png" target="_blank" rel="noopener"><img src="assets/images/testing/saved-medication.png" alt="Saved local record in the Meds tab" loading="lazy" decoding="async"></a><figcaption>Saved local record in the Meds tab</figcaption></figure>
+      <figure><a href="assets/images/testing/medication-actions.png" target="_blank" rel="noopener"><img src="assets/images/testing/medication-actions.png" alt="Saved medication record with adherence history and record actions" loading="lazy" decoding="async"></a><figcaption>Saved medication record with adherence history and record actions</figcaption></figure>
+     </div>
+    </details>
+   </article>
+   <article class="tool-card">
+    <h4>Patient voice assistant</h4>
+    <p>Open the Voice Assistant from the Patient Dashboard and try asking “Where can I see my medications?” first by speaking and then by typing. Check whether the assistant shows what it heard or received, whether its response makes the next step clear, and whether the patient can stop or repeat the spoken response.</p>
+    <details class="testing-screenshots">
+     <summary>View prototype screenshots</summary>
+     <div class="testing-gallery">
+      <figure><a href="assets/images/testing/voice-assistant-input.png" target="_blank" rel="noopener"><img src="assets/images/testing/voice-assistant-input.png" alt="CareNest Voice Assistant with controls to speak or type a command" loading="lazy" decoding="async"></a><figcaption>Speak or type a command</figcaption></figure>
+      <figure><a href="assets/images/testing/voice-assistant-response.png" target="_blank" rel="noopener"><img src="assets/images/testing/voice-assistant-response.png" alt="Voice Assistant showing the patient’s medication question and the assistant’s response" loading="lazy" decoding="async"></a><figcaption>Review the command and response</figcaption></figure>
+     </div>
+    </details>
+   </article>
+  </div>
+  <div class="tool-card testing-next-step"><h3>Our next milestone</h3><p>These are planned usability checks based on the current prototype. We’ll use them to see where patients and caregivers hesitate or need help and decide what to improve first.</p></div>
  </div>
 </section>
 
