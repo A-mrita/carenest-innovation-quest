@@ -733,7 +733,21 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
      <div><span class="insight-label">Design patterns</span><span class="insight-label">Nest metaphor</span><span class="insight-label">Random association</span></div>
     </div>
    </article>
-   <article class="tool-card"><h4>Convergent thinking</h4><p>We compared and prioritised ideas using the 10–100–1000 gram technique.</p><button onclick="reveal('converge')">Peek inside</button><div class="tool-detail" id="converge">The group weighed ideas and discussed which solution, or combination of ideas, should move forward.</div></article>
+   <article class="tool-card empathy-tool-card">
+    <h4>Convergent thinking</h4>
+    <p>We used the 10–100–1000 gram technique to compare ideas from Divergent Thinking by impact, feasibility, and value to patients and caregivers.</p>
+    <div class="activity-actions"><button type="button" onclick="openVisual('convergentThinkingModal')">View convergent thinking ↗</button></div>
+    <button type="button" class="insight-toggle" aria-expanded="false" aria-controls="converge" onclick="toggleInsight(this)">What we discovered <span aria-hidden="true">⌄</span></button>
+    <div class="insight-panel" id="converge">
+     <ul>
+      <li><b>Weighting made priorities visible.</b> The team assigned weights of 10, 100, or 1,000 and compared the totals to narrow the list.</li>
+      <li><b>Emergency SOS and teleconsultation ranked highest.</b> Health tracking and a daily care log also made the shortlist.</li>
+      <li><b>The shortlist covered different care needs.</b> It brought together ideas for urgent assistance, access to clinicians, and tracking everyday care.</li>
+     </ul>
+     <b>Takeaway:</b> Use the shortlist to guide what to explore next and check which ideas can be built and tested with the resources available.
+     <div><span class="insight-label">Weighted scoring</span><span class="insight-label">Feature shortlist</span><span class="insight-label">Feasibility</span></div>
+    </div>
+   </article>
   </div>
   <div class="tool-card ideate-next-step"><p><b>What this stage gave us:</b> The needs we explored helped us narrow many possibilities into a more focused direction for the product.</p></div>
  </div>
@@ -952,6 +966,7 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
 <div id="problemSizingModal" class="visual-modal" onclick="closeVisual('problemSizingModal')"><button class="visual-modal-close" onclick="closeVisual('problemSizingModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/problem-sizing.png" alt="Problem sizing board showing the caregiver population, incident frequency, estimated time burden, and barriers to adoption"></div></div>
 <div id="mindMappingModal" class="visual-modal" onclick="closeVisual('mindMappingModal')"><button class="visual-modal-close" onclick="closeVisual('mindMappingModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/mind-mapping.png" alt="CareNest mind map connecting caregiver and patient needs with feature ideas, benefits, and design challenges"></div></div>
 <div id="divergentThinkingModal" class="visual-modal" onclick="closeVisual('divergentThinkingModal')"><button class="visual-modal-close" onclick="closeVisual('divergentThinkingModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/divergent-thinking.png" alt="Divergent thinking board showing design patterns, anti-patterns, the nest metaphor, and random associations"></div></div>
+<div id="convergentThinkingModal" class="visual-modal" onclick="closeVisual('convergentThinkingModal')"><button class="visual-modal-close" onclick="closeVisual('convergentThinkingModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/convergent-thinking.png" alt="Convergent thinking board with a weighted feature comparison and the four shortlisted ideas"></div></div>
 <div id="personaModal" class="visual-modal" onclick="closeVisual('personaModal')"><button class="visual-modal-close" onclick="closeVisual('personaModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/persona-mapping.png.png" alt="Persona mapping: Ananya, the working daughter"></div></div>
 <div id="empathyModal" class="visual-modal" onclick="closeVisual('empathyModal')"><button class="visual-modal-close" onclick="closeVisual('empathyModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/empathy-mapping.png" alt="Empathy map showing what Ananya says, thinks, does and feels"></div></div>
 <div id="stakeholderModal" class="visual-modal" onclick="closeVisual('stakeholderModal')"><button class="visual-modal-close" onclick="closeVisual('stakeholderModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/stakeholder-analysis.png" alt="Mendelow Power–Interest Matrix for CareNest stakeholders"></div></div>
