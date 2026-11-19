@@ -401,7 +401,7 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #empathise .empathise-insight h3{color:var(--yellow)}
 #empathise .empathy-next-step{margin-top:25px}
 
-#define{background:#e6bfd7;isolation:isolate}
+#define{--define-heading-size:clamp(30px,4vw,47px);background:#e6bfd7;isolation:isolate}
 #define::before{
   content:"";
   position:absolute;
@@ -416,11 +416,51 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #define .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
 #define .section-kicker{color:var(--purple)}
 #define .chapter-lead{color:#65556f}
+#define .chapter-top .section-title{font-size:var(--define-heading-size)}
+#define .tool-grid .tool-card h4{font-size:calc(var(--define-heading-size) * .75);line-height:1.2;overflow-wrap:anywhere}
 #define .tool-grid .tool-card{background:rgba(255,255,255,.76);box-shadow:0 8px 20px #35204b22}
 #define .tool-grid .tool-card:hover{box-shadow:0 14px 28px #35204b30}
 #define .tool-grid .tool-card p{color:#65556f}
 #define .tool-card button{color:var(--purple)}
 #define .define-next-step{margin-top:25px}
+
+#ideate{--ideate-heading-size:clamp(30px,4vw,47px);background:var(--peach);isolation:isolate}
+#ideate::before,
+#prototype::before,
+#future::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  /* Floral pattern by callmetak, Magnific stock asset 67816804. */
+  background:url("https://img.magnific.com/free-vector/vector-seamless-floral-pattern-illustration-horizontally-vertically-repeatable_8130-2711.jpg") repeat top left / 340px auto;
+  mix-blend-mode:multiply;
+  opacity:.28;
+}
+#ideate .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#ideate .section-kicker{color:var(--purple)}
+#ideate .chapter-lead{color:#65556f}
+#ideate .chapter-top .section-title{font-size:var(--ideate-heading-size)}
+#ideate .tool-grid .tool-card h4{font-size:calc(var(--ideate-heading-size) * .75);line-height:1.2;overflow-wrap:anywhere}
+#ideate .tool-grid .tool-card{background:rgba(255,255,255,.76);box-shadow:0 8px 20px #35204b22}
+#ideate .tool-grid .tool-card:hover{box-shadow:0 14px 28px #35204b30}
+#ideate .tool-grid .tool-card p{color:#65556f}
+#ideate .tool-card button{color:var(--purple)}
+#ideate .ideate-next-step{margin-top:25px}
+
+#prototype{background:#f8d8ee;isolation:isolate}
+#prototype .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#prototype .section-kicker{color:var(--purple)}
+#prototype .chapter-lead{color:#65556f}
+#prototype .prototype-next-step{margin-top:25px}
+
+#future{background:#efe0c9;isolation:isolate}
+#future .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#future .section-kicker{color:var(--purple)}
+#future .chapter-lead{color:#65556f}
+#future .testing-next-step{margin-top:25px}
+#future .testing-next-step h3{font-size:1.17rem;margin:0 0 8px}
 .empathy-experience{margin-top:30px}.empathy-tool-card{display:flex;flex-direction:column;min-height:100%}
 .insight-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 15px;margin-top:12px;border:1px solid #eadcf4;border-radius:14px;background:#fbf5ff;color:#563b72;font-weight:800;text-align:left;cursor:pointer}
 .insight-toggle span:last-child{font-size:19px;transition:transform .2s}.insight-toggle[aria-expanded="true"] span:last-child{transform:rotate(180deg)}
@@ -517,7 +557,7 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
  <div class="insight-columns"><div class="insight-column"><strong>01 · The human need</strong><p>Caregivers want to feel confident that important needs are not being missed, even when they are away.</p></div><div class="insight-column"><strong>02 · The practical gap</strong><p>Medicines, appointments, records and daily requests can become scattered across alarms, notes and conversations.</p></div><div class="insight-column"><strong>03 · The design opportunity</strong><p>Bring essential care information and everyday support into one simple, accessible experience for both caregiver and patient.</p></div></div>
  <div class="insight-flow"><span>People & emotions</span><b>→</b><span>Caregiving needs</span><b>→</b><span>CareNest direction</span></div>
 </div>
-<div class="tool-card empathy-next-step"><p><b>How this shaped our next step:</b> these insights guided us into the Define stage, where we narrowed the broad caregiving challenge into a clearer problem to solve.</p></div>
+<div class="tool-card empathy-next-step"><p><b>How this shaped our next step:</b> These insights guided us into the Define stage, where we narrowed the broad caregiving challenge into a clearer problem to solve.</p></div>
 </section>
 
 <section class="chapter" id="define">
@@ -527,37 +567,35 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
    <article class="tool-card"><h4>Problem identification</h4><p>We identified a user, explored daily challenges, selected an important problem and considered possible solutions.</p><button onclick="reveal('problem')">Peek inside</button><div class="tool-detail" id="problem">The activity guided us from choosing a user group to identifying a specific challenge worth addressing.</div></article>
    <article class="tool-card"><h4>Problem sizing</h4><p>We considered the user segment, frequency, severity or cost, and factors that could affect the problem over time.</p><button onclick="reveal('sizing')">Peek inside</button><div class="tool-detail" id="sizing">Problem sizing encouraged us to make our assumptions visible and think about how significant the selected problem could be.</div></article>
   </div>
-  <div class="tool-card define-next-step"><p><b>What this stage gave us:</b> a clearer direction for the solution. It helped us move beyond a broad topic and focus on a challenge connected to caregiving.</p></div>
+  <div class="tool-card define-next-step"><p><b>What this stage gave us:</b> This stage gave us a clearer direction for the solution. We moved beyond a broad topic and focused on a specific caregiving challenge.</p></div>
  </div>
 </section>
 
-<section class="chapter" id="ideate" style="background:#f2eafa">
+<section class="chapter" id="ideate">
  <div class="chapter-inner">
-  <div class="chapter-top"><div class="chapter-number" style="background:#d8c5ed">03</div><div><div class="section-kicker">LET THE IDEAS BLOOM</div><h2 class="section-title">Ideate <span>💡</span></h2><p class="chapter-lead">With the challenge in mind, we explored different ways of thinking, generating possibilities and narrowing them towards a promising direction.</p></div></div>
+  <div class="chapter-top"><div class="chapter-number">03.</div><div><div class="section-kicker">LET THE IDEAS BLOOM</div><h2 class="section-title">Ideate <span>♡</span></h2><p class="chapter-lead">With the challenge in mind, we explored different ways of thinking, generating possibilities and narrowing them towards a promising direction.</p></div></div>
   <div class="tool-grid">
-   <article class="tool-card"><div class="tool-icon">🌈</div><h4>Visualisation</h4><p>We used a visual exercise to imagine a future vision beyond immediate limitations.</p><button onclick="reveal('vision')">Peek inside ↓</button><div class="tool-detail" id="vision">The ten-year vision activity encouraged us to communicate ideas through images, symbols, colours and visual connections.</div></article>
-   <article class="tool-card"><div class="tool-icon">⭕</div><h4>30 Circles challenge</h4><p>A timed sketching exercise to stretch creativity and generate many possibilities.</p><button onclick="reveal('circles')">Peek inside ↓</button><div class="tool-detail" id="circles">We practised quick, loose idea generation instead of judging each idea too early.</div></article>
-   <article class="tool-card"><div class="tool-icon">🧠</div><h4>Mind mapping</h4><p>We connected users, problems, needs, features, benefits and challenges around a central idea.</p><button onclick="reveal('mindmap')">Peek inside ↓</button><div class="tool-detail" id="mindmap">A mind map helped us see how user insights could connect to product ideas and possible features.</div></article>
-   <article class="tool-card"><div class="tool-icon">🌻</div><h4>Divergent thinking</h4><p>We explored multiple possibilities through brainstorming, patterns, metaphors and random association.</p><button onclick="reveal('diverge')">Peek inside ↓</button><div class="tool-detail" id="diverge">The goal was to widen the solution space before choosing a direction.</div></article>
-   <article class="tool-card"><div class="tool-icon">⚖️</div><h4>Convergent thinking</h4><p>We compared and prioritised ideas using the 10–100–1000 gram technique.</p><button onclick="reveal('converge')">Peek inside ↓</button><div class="tool-detail" id="converge">The group weighed ideas and discussed which solution, or combination of ideas, should move forward.</div></article>
+   <article class="tool-card"><h4>Visualisation</h4><p>We used a visual exercise to imagine a future vision beyond immediate limitations.</p><button onclick="reveal('vision')">Peek inside</button><div class="tool-detail" id="vision">The ten-year vision activity encouraged us to communicate ideas through images, symbols, colours and visual connections.</div></article>
+   <article class="tool-card"><h4>30 Circles challenge</h4><p>A timed sketching exercise to stretch creativity and generate many possibilities.</p><button onclick="reveal('circles')">Peek inside</button><div class="tool-detail" id="circles">We practised quick, loose idea generation instead of judging each idea too early.</div></article>
+   <article class="tool-card"><h4>Mind mapping</h4><p>We connected users, problems, needs, features, benefits and challenges around a central idea.</p><button onclick="reveal('mindmap')">Peek inside</button><div class="tool-detail" id="mindmap">A mind map helped us see how user insights could connect to product ideas and possible features.</div></article>
+   <article class="tool-card"><h4>Divergent thinking</h4><p>We explored multiple possibilities through brainstorming, patterns, metaphors and random association.</p><button onclick="reveal('diverge')">Peek inside</button><div class="tool-detail" id="diverge">The goal was to widen the solution space before choosing a direction.</div></article>
+   <article class="tool-card"><h4>Convergent thinking</h4><p>We compared and prioritised ideas using the 10–100–1000 gram technique.</p><button onclick="reveal('converge')">Peek inside</button><div class="tool-detail" id="converge">The group weighed ideas and discussed which solution, or combination of ideas, should move forward.</div></article>
   </div>
-  <div class="note-strip"><span>💜</span><p><b>What this stage gave us:</b> a way to move from many possibilities towards a more focused product direction, guided by the needs we had explored.</p></div>
+  <div class="tool-card ideate-next-step"><p><b>What this stage gave us:</b> The needs we explored helped us narrow many possibilities into a more focused direction for the product.</p></div>
  </div>
 </section>
 
-<section class="chapter" id="prototype" style="background:#fff8f1">
+<section class="chapter" id="prototype">
  <div class="chapter-inner">
-  <div class="chapter-top"><div class="chapter-number" style="background:#d9f0e2">04</div><div><div class="section-kicker">GIVING THE IDEA A SHAPE</div><h2 class="section-title">Prototype <span>🪺</span></h2><p class="chapter-lead">We brought our selected direction into a prototype: a caregiving companion shaped around the needs we explored.</p></div></div>
-  <div class="note-strip"><span>🧩</span><p><b>From idea to something tangible:</b> this is where our selected concept becomes something we can show, explore and eventually improve.</p></div>
+  <div class="chapter-top"><div class="chapter-number">04.</div><div><div class="section-kicker">GIVING THE IDEA A SHAPE</div><h2 class="section-title">Prototype <span>♡</span></h2><p class="chapter-lead">We brought our selected direction into a prototype: a caregiving companion shaped around the needs we explored.</p></div></div>
+  <div class="tool-card prototype-next-step"><p><b>From idea to something tangible:</b> Here, our selected concept becomes something we can show, explore, and eventually improve.</p></div>
  </div>
 </section>
 
-<section class="future" id="future">
+<section class="chapter" id="future">
  <div class="chapter-inner">
-  <div class="section-kicker">A WORK IN PROGRESS · STAGE 05</div>
-  <h2 class="section-title">Test, learn & grow <span>🌱</span></h2>
-  <p class="section-intro">A prototype is a starting point, not the finish line. Testing helps us understand what works, what feels confusing and what can be improved.</p>
-  <div class="future-panel" style="margin-top:28px"><div class="future-icon">🧪</div><div><h3 style="color:var(--plum);margin-bottom:8px">Our next milestone</h3><p>Prototype testing has not yet been completed. Our next step is to explore usability, caregiver workflows, patient assistance and opportunities for improvement with feedback from intended users.</p></div></div>
+  <div class="chapter-top"><div class="chapter-number">05.</div><div><div class="section-kicker">A WORK IN PROGRESS</div><h2 class="section-title">Testing <span>♡</span></h2><p class="chapter-lead">A prototype is a starting point, not the finish line. Testing helps us understand what works, what feels confusing and what can be improved.</p></div></div>
+  <div class="tool-card testing-next-step"><h3>Our next milestone</h3><p>Prototype testing has not yet been completed. Our next step is to explore usability, caregiver workflows, patient assistance and opportunities for improvement with feedback from intended users.</p></div>
  </div>
 </section>
 
@@ -567,7 +605,7 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
  <p class="section-intro">After the journey of understanding, defining and exploring ideas, here's our CareNest prototype.</p>
  <div class="prototype-card">
   <h3>Our CareNest prototype</h3>
-  <div class="prototype-placeholder"><div><div class="phone">📱</div><b>Your actual prototype goes here</b><p>We'll add your prototype screenshots or a clickable prototype link here, along with a visual walkthrough of its key features.</p></div></div>
+  <a class="btn" href="assets/downloads/app-release.apk" download="CareNest.apk">Download CareNest for Android (APK)</a>
  </div>
 </section>
 
@@ -883,7 +921,7 @@ function reveal(id){
  if(btn){
   const label=opening?'Show less':'Peek inside';
   const indicator=opening?' ↑':' ↓';
-  btn.textContent=panel.closest('#define')?label:label+indicator;
+  btn.textContent=panel.closest('#define, #ideate')?label:label+indicator;
  }
 }
 const topButton=document.querySelector('.back-top');
