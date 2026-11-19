@@ -254,14 +254,14 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 }
 
 .bmc-tile h3 {
-  font-size: clamp(15px, 1.3vw, 20px);
+  font-size: clamp(16px, 1.4vw, 21px);
   line-height: 1.25;
   margin: 0;
   font-weight: 800;
 }
 
 .bmc-tile p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
   margin: 0;
   opacity: .85;
@@ -290,7 +290,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 
 .bmc-partners { grid-area: partners; background: linear-gradient(145deg,#f5dafa,#e7c9f6); }
 .bmc-activities { grid-area: activities; background: linear-gradient(145deg,#ffedc4,#ffda9b); }
-.bmc-resources { grid-area: resources; background: linear-gradient(145deg,#d9edff,#b9d9fa); }
+.bmc-resources { grid-area: resources; }
+.bmc-resources, #business-model { background: linear-gradient(145deg,#d9edff,#b9d9fa); }
 .bmc-propositions {
   grid-area: value;
   background: linear-gradient(145deg,#e5d7ff,#c8b1f1);
@@ -427,7 +428,8 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #ideate{--ideate-heading-size:clamp(30px,4vw,47px);background:var(--peach);isolation:isolate}
 #ideate::before,
 #prototype::before,
-#future::before{
+#future::before,
+#business-model::before{
   content:"";
   position:absolute;
   inset:0;
@@ -461,6 +463,11 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #future .chapter-lead{color:#65556f}
 #future .testing-next-step{margin-top:25px}
 #future .testing-next-step h3{font-size:1.17rem;margin:0 0 8px}
+
+#business-model{isolation:isolate}
+#business-model .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#business-model .section-kicker{color:var(--purple)}
+#business-model .chapter-lead{color:#65556f}
 .empathy-experience{margin-top:30px}.empathy-tool-card{display:flex;flex-direction:column;min-height:100%}
 .insight-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 15px;margin-top:12px;border:1px solid #eadcf4;border-radius:14px;background:#fbf5ff;color:#563b72;font-weight:800;text-align:left;cursor:pointer}
 .insight-toggle span:last-child{font-size:19px;transition:transform .2s}.insight-toggle[aria-expanded="true"] span:last-child{transform:rotate(180deg)}
@@ -609,76 +616,69 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
  </div>
 </section>
 
-<section class="bmc-section" id="business-model">
-  <div class="bmc-heading">
-    <div class="section-kicker">THE BUSINESS BEHIND THE CARE</div>
-    <h2 class="section-title">The CareNest Business Model Canvas ✦</h2>
-    <p class="section-intro">
-      Nine building blocks. One connected vision.
-      Explore how CareNest creates, delivers and sustains value.
-    </p>
+<section class="chapter bmc-section" id="business-model">
+  <div class="chapter-inner">
+    <div class="chapter-top">
+      <div class="chapter-number">06.</div>
+      <div class="bmc-heading">
+        <div class="section-kicker">THE BUSINESS BEHIND THE CARE</div>
+        <h2 class="section-title">The CareNest Business Model Canvas <span>♡</span></h2>
+        <p class="chapter-lead">Nine building blocks. One connected vision. Explore how CareNest creates, delivers and sustains value.</p>
+      </div>
+    </div>
   </div>
 
   <div class="bmc-board">
 
     <button class="bmc-tile bmc-partners" onclick="openBMC('partners')">
-      <span class="bmc-icon">🤝</span>
       <h3>Key Partners</h3>
       <p>Our network of care and technology partners</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-activities" onclick="openBMC('activities')">
-      <span class="bmc-icon">⚙️</span>
       <h3>Key Activities</h3>
       <p>What we do to deliver CareNest</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-resources" onclick="openBMC('resources')">
-      <span class="bmc-icon">🧩</span>
       <h3>Key Resources</h3>
       <p>What we need to make it work</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-propositions" onclick="openBMC('value')">
-      <span class="bmc-icon">💎</span>
       <h3>Value Propositions</h3>
       <p>One platform. All care activities.</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-relationships" onclick="openBMC('relationships')">
-      <span class="bmc-icon">💗</span>
       <h3>Customer Relationships</h3>
       <p>Building trust and lasting connections</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-channels" onclick="openBMC('channels')">
-      <span class="bmc-icon">📡</span>
       <h3>Channels</h3>
       <p>How CareNest reaches its users</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-segments" onclick="openBMC('segments')">
-      <span class="bmc-icon">👥</span>
       <h3>Customer Segments</h3>
       <p>Who we are creating CareNest for</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-costs" onclick="openBMC('cost')">
-      <span class="bmc-icon">🧮</span>
       <h3>Cost Structure</h3>
       <p>The investment and expenses behind CareNest</p>
       <span class="bmc-explore">EXPLORE ↗</span>
     </button>
 
     <button class="bmc-tile bmc-revenue" onclick="openBMC('revenue')">
-      <span class="bmc-icon">📈</span>
       <h3>Revenue Streams</h3>
       <p>How CareNest can sustain its growth</p>
       <span class="bmc-explore">EXPLORE ↗</span>
@@ -686,9 +686,6 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 
   </div>
 
-  <p class="bmc-footnote">
-    Every block plays a part in building a connected caregiving ecosystem.
-  </p>
 </section>
 
 <footer>
