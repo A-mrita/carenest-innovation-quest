@@ -677,7 +677,22 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
      <div><span class="insight-label">Daily routines</span><span class="insight-label">Mental load</span><span class="insight-label">Care coordination</span></div>
     </div>
    </article>
-   <article class="tool-card"><h4>Problem sizing</h4><p>We considered the user segment, frequency, severity or cost, and factors that could affect the problem over time.</p><button onclick="reveal('sizing')">Peek inside</button><div class="tool-detail" id="sizing">Problem sizing encouraged us to make our assumptions visible and think about how significant the selected problem could be.</div></article>
+   <article class="tool-card empathy-tool-card">
+    <h4>Problem sizing</h4>
+    <p>We estimated the time Chennai family caregivers could lose to recurring problems such as missed doses, appointments, and forgotten tasks.</p>
+    <div class="activity-actions"><button type="button" onclick="openVisual('problemSizingModal')">View problem sizing ↗</button></div>
+    <button type="button" class="insight-toggle" aria-expanded="false" aria-controls="sizing" onclick="toggleInsight(this)">What we discovered <span aria-hidden="true">⌄</span></button>
+    <div class="insight-panel" id="sizing">
+     <b>Small interruptions can add up to a substantial time burden.</b>
+     <ul>
+      <li><b>Who is affected.</b> The model starts with an estimated 50,000 family caregivers in Chennai who support older, bedridden, or mobility-restricted people at home.</li>
+      <li><b>How the estimate adds up.</b> At 180 incidents a year and 30 minutes per incident, the model estimates 90 hours per caregiver, or 4.5 million hours across the group annually.</li>
+      <li><b>What could affect adoption.</b> Internet access, confidence using apps, privacy concerns, affordability, and familiar paper or family routines may influence whether caregivers use a digital tool.</li>
+     </ul>
+     <b>Takeaway:</b> Validate the frequency and time-loss assumptions with caregivers, then focus on the recurring tasks where CareNest could save them the most time.
+     <div><span class="insight-label">Caregiver time</span><span class="insight-label">Sizing assumptions</span><span class="insight-label">Adoption barriers</span></div>
+    </div>
+   </article>
   </div>
   <div class="tool-card define-next-step"><p><b>What this stage gave us:</b> This stage gave us a clearer direction for the solution. We moved beyond a broad topic and focused on a specific caregiving challenge.</p></div>
  </div>
@@ -889,6 +904,7 @@ html.vine-scroll-ready::-webkit-scrollbar-thumb{background:transparent}
   </svg>
 </button>
 <div id="problemIdentificationModal" class="visual-modal" onclick="closeVisual('problemIdentificationModal')"><button class="visual-modal-close" onclick="closeVisual('problemIdentificationModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/problem-identification.png" alt="Problem identification board showing Ananya’s day-to-day caregiving challenges, emotional strain, and gaps in care coordination"></div></div>
+<div id="problemSizingModal" class="visual-modal" onclick="closeVisual('problemSizingModal')"><button class="visual-modal-close" onclick="closeVisual('problemSizingModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/problem-sizing.png" alt="Problem sizing board showing the caregiver population, incident frequency, estimated time burden, and barriers to adoption"></div></div>
 <div id="personaModal" class="visual-modal" onclick="closeVisual('personaModal')"><button class="visual-modal-close" onclick="closeVisual('personaModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/persona-mapping.png.png" alt="Persona mapping: Ananya, the working daughter"></div></div>
 <div id="empathyModal" class="visual-modal" onclick="closeVisual('empathyModal')"><button class="visual-modal-close" onclick="closeVisual('empathyModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/empathy-mapping.png" alt="Empathy map showing what Ananya says, thinks, does and feels"></div></div>
 <div id="stakeholderModal" class="visual-modal" onclick="closeVisual('stakeholderModal')"><button class="visual-modal-close" onclick="closeVisual('stakeholderModal')" aria-label="Close">×</button><div class="visual-modal-inner" onclick="event.stopPropagation()"><img src="assets/images/stakeholder-analysis.png" alt="Mendelow Power–Interest Matrix for CareNest stakeholders"></div></div>
