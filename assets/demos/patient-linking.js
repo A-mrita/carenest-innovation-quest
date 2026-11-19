@@ -8,16 +8,16 @@
   const status = dialog.querySelector('.linking-status');
   const play = dialog.querySelector('[data-play]');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const patient = { name: 'Meera Rao', age: 42, id: 'CN-482731' };
-  const caregiver = { name: 'Asha Rao', age: 29 };
-  const portrait = '<img src="assets/images/linking-demo-patient.png" alt="CareNest illustration of Meera">';
+  const patient = { name: 'Sujata Sahoo', age: 62, id: 'CN-482731' };
+  const caregiver = { name: 'Ananya Sahoo', age: 31 };
+  const portrait = '<img src="assets/images/linking-demo-patient.png" alt="CareNest illustration of Sujata">';
   const profile = `<div class="linking-profile"><div><strong>${patient.name}</strong>
     <p>Age: ${patient.age} · Patient account</p><p>Patient ID: ${patient.id}</p></div>${portrait}</div>`;
   const action = (label, next) => `<button type="button" data-next="${next}">${label}</button>`;
   const scenes = {
     patient: {
       caption: 'The patient sees their shareable ID.',
-      html: `<h3>Patient Dashboard</h3><div class="linking-card"><h4>Hello, Meera!</h4>${profile}
+      html: `<h3>Patient Dashboard</h3><div class="linking-card"><h4>Hello, Sujata!</h4>${profile}
         <p>Share your Patient ID with your caregiver so they can request a connection.</p></div>`,
     },
     caregiver: {

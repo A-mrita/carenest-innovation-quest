@@ -3,10 +3,10 @@
   const screen = dialog.querySelector('.linking-screen');
   const status = dialog.querySelector('.linking-status');
   const accounts = {
-    caregiver: { firstName: 'Asha', name: 'Asha Rao', age: 29, role: 'Caregiver' },
-    patient: { firstName: 'Meera', name: 'Meera Rao', age: 42, role: 'Patient' },
+    caregiver: { firstName: 'Ananya', name: 'Ananya Sahoo', age: 31, role: 'Caregiver' },
+    patient: { firstName: 'Sujata', name: 'Sujata Sahoo', age: 62, role: 'Patient' },
   };
-  const portrait = '<img src="assets/images/linking-demo-patient.png" alt="CareNest illustration of Meera Rao">';
+  const portrait = '<img src="assets/images/linking-demo-patient.png" alt="CareNest illustration of Sujata Sahoo">';
   const switchButton = '<button type="button" data-view="switch">Switch account</button>';
   let active = 'caregiver';
 
@@ -21,8 +21,8 @@
       else tab.removeAttribute('aria-current');
     }
 
-    const patientProfile = `<div class="linking-profile"><div><strong>Meera Rao</strong>
-      <p>Age: 42 · Patient account</p><p>Patient ID: CN-482731</p></div>${portrait}</div>`;
+    const patientProfile = `<div class="linking-profile"><div><strong>Sujata Sahoo</strong>
+      <p>Age: 62 · Patient account</p><p>Patient ID: CN-482731</p></div>${portrait}</div>`;
     const greeting = `<h4>Hello, ${account.firstName}!</h4>`;
     const details = `<strong>${account.name}</strong><p>Age: ${account.age} · ${account.role} account</p>`;
     const homeContent = isPatient
@@ -31,7 +31,7 @@
         <span class="linking-badge">Connected</span>${patientProfile}</div>`;
     const accountContent = isPatient
       ? '<h3>Account</h3><div class="linking-card"><h4>Caregiver requests</h4><p>No pending demo requests.</p></div>'
-      : `<h3>More</h3><p>Patient context: Meera Rao</p><ul class="multilogin-list">
+      : `<h3>More</h3><p>Patient context: Sujata Sahoo</p><ul class="multilogin-list">
         <li>Patient history</li><li>Doctor instructions</li><li>Documents</li><li>Allergies</li><li>Emergency contacts</li></ul>`;
     const alternate = Object.entries(accounts).find(([key]) => key !== active);
     const [alternateKey, alternateAccount] = alternate;
