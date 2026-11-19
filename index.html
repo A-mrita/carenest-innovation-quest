@@ -400,6 +400,27 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 #empathise .empathy-tool-card h4{font-size:calc(var(--empathise-heading-size) * .75);line-height:1.2;overflow-wrap:anywhere}
 #empathise .empathise-insight h3{color:var(--yellow)}
 #empathise .empathy-next-step{margin-top:25px}
+
+#define{background:#e6bfd7;isolation:isolate}
+#define::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  /* Floral pattern by callmetak, Magnific stock asset 67816804. */
+  background:url("https://img.magnific.com/free-vector/vector-seamless-floral-pattern-illustration-horizontally-vertically-repeatable_8130-2711.jpg") repeat top left / 340px auto;
+  mix-blend-mode:multiply;
+  opacity:.28;
+}
+#define .chapter-number{display:block;width:auto;height:auto;background:none;color:var(--plum);font-weight:bold}
+#define .section-kicker{color:var(--purple)}
+#define .chapter-lead{color:#65556f}
+#define .tool-grid .tool-card{background:rgba(255,255,255,.76);box-shadow:0 8px 20px #35204b22}
+#define .tool-grid .tool-card:hover{box-shadow:0 14px 28px #35204b30}
+#define .tool-grid .tool-card p{color:#65556f}
+#define .tool-card button{color:var(--purple)}
+#define .define-next-step{margin-top:25px}
 .empathy-experience{margin-top:30px}.empathy-tool-card{display:flex;flex-direction:column;min-height:100%}
 .insight-toggle{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:13px 15px;margin-top:12px;border:1px solid #eadcf4;border-radius:14px;background:#fbf5ff;color:#563b72;font-weight:800;text-align:left;cursor:pointer}
 .insight-toggle span:last-child{font-size:19px;transition:transform .2s}.insight-toggle[aria-expanded="true"] span:last-child{transform:rotate(180deg)}
@@ -499,14 +520,14 @@ footer p{font-size:12px;color:#e3d6e9;line-height:1.7}
 <div class="tool-card empathy-next-step"><p><b>How this shaped our next step:</b> these insights guided us into the Define stage, where we narrowed the broad caregiving challenge into a clearer problem to solve.</p></div>
 </section>
 
-<section class="chapter" id="define" style="background:#fff0e8">
+<section class="chapter" id="define">
  <div class="chapter-inner">
-  <div class="chapter-top"><div class="chapter-number" style="background:#ffe7a0">02</div><div><div class="section-kicker">ZOOM IN ON THE NEED</div><h2 class="section-title">Define <span>🔎</span></h2><p class="chapter-lead">After exploring the people and their experiences, we focused on identifying the challenge our product should address.</p></div></div>
+  <div class="chapter-top"><div class="chapter-number">02.</div><div><div class="section-kicker">ZOOM IN ON THE NEED</div><h2 class="section-title">Define <span>♡</span></h2><p class="chapter-lead">After exploring the people and their experiences, we focused on identifying the challenge our product should address.</p></div></div>
   <div class="tool-grid">
-   <article class="tool-card"><div class="tool-icon">🎯</div><h4>Problem identification</h4><p>We identified a user, explored daily challenges, selected an important problem and considered possible solutions.</p><button onclick="reveal('problem')">Peek inside ↓</button><div class="tool-detail" id="problem">The activity guided us from choosing a user group to identifying a specific challenge worth addressing.</div></article>
-   <article class="tool-card"><div class="tool-icon">📊</div><h4>Problem sizing</h4><p>We considered the user segment, frequency, severity or cost, and factors that could affect the problem over time.</p><button onclick="reveal('sizing')">Peek inside ↓</button><div class="tool-detail" id="sizing">Problem sizing encouraged us to make our assumptions visible and think about how significant the selected problem could be.</div></article>
+   <article class="tool-card"><h4>Problem identification</h4><p>We identified a user, explored daily challenges, selected an important problem and considered possible solutions.</p><button onclick="reveal('problem')">Peek inside</button><div class="tool-detail" id="problem">The activity guided us from choosing a user group to identifying a specific challenge worth addressing.</div></article>
+   <article class="tool-card"><h4>Problem sizing</h4><p>We considered the user segment, frequency, severity or cost, and factors that could affect the problem over time.</p><button onclick="reveal('sizing')">Peek inside</button><div class="tool-detail" id="sizing">Problem sizing encouraged us to make our assumptions visible and think about how significant the selected problem could be.</div></article>
   </div>
-  <div class="note-strip"><span>✨</span><p><b>What this stage gave us:</b> a clearer direction for the solution. It helped us move beyond a broad topic and focus on a challenge connected to caregiving.</p></div>
+  <div class="tool-card define-next-step"><p><b>What this stage gave us:</b> a clearer direction for the solution. It helped us move beyond a broad topic and focus on a challenge connected to caregiving.</p></div>
  </div>
 </section>
 
@@ -859,7 +880,11 @@ function reveal(id){
  const opening=!panel.classList.contains('open');
  panel.classList.toggle('open');
  const btn=panel.previousElementSibling;
- if(btn) btn.textContent=opening?'Show less ↑':'Peek inside ↓';
+ if(btn){
+  const label=opening?'Show less':'Peek inside';
+  const indicator=opening?' ↑':' ↓';
+  btn.textContent=panel.closest('#define')?label:label+indicator;
+ }
 }
 const topButton=document.querySelector('.back-top');
 window.addEventListener('scroll',()=>topButton.classList.toggle('show',window.scrollY>450));
